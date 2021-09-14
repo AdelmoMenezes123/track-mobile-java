@@ -12,10 +12,6 @@ buildscript {
     }
 }
 
-// task clean(type: Delete) {
-//     delete rootProject.buildDir
-// }
-
-apply plugin: 'java'
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
