@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ContainerComponents">
+        <item name="android:layout_width">147dp</item>
+        <item name="android:layout_height">147dp</item>
+        <item name="android:radius">20dp</item>
+        <item name="cornerRadius">100dp</item>
+    </style>
+
+    <style name="ContainerImagem">
+        <item name="android:layout_width">175dp</item>
+        <item name="android:layout_height">160dp</item>
+        <item name="android:layout_marginTop">56dp</item>
+    </style>
+
+    <style name="ImagenCredito">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginStart">28dp</item>
+    </style>
+
+    <style name="textoCredito">
+        <item name="android:layout_width">140dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:color">@color/black</item>
+    </style>
+
+
+
+</resources>

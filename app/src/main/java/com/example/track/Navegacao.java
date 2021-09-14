@@ -1,0 +1,13 @@
+package com.example.track;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class Navegacao extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_navegacao);
+    }
+}

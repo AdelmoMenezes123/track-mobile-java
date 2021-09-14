@@ -1,0 +1,291 @@
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        tools:context=".Creditos">
+
+        <ImageView
+            android:id="@+id/icone_volta"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/voltar"
+            app:layout_constraintEnd_toStartOf="@+id/voltar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/voltar"
+            android:layout_width="56dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="28dp"
+
+            android:layout_marginEnd="264dp"
+            android:letterSpacing="0.1"
+            android:text="Voltar"
+            android:textColor="@color/green"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/buttonCreditor"
+            android:layout_width="354dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/red"
+
+
+            android:backgroundTint="@color/green"
+            android:radius="10dp"
+            app:circularflow_angles="90dp"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/icone_volta" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="247dp"
+            android:layout_height="39dp"
+
+            android:text="CRÉDITOS"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonCreditor"
+            app:layout_constraintEnd_toEndOf="@+id/buttonCreditor"
+            app:layout_constraintStart_toStartOf="@+id/buttonCreditor"
+            app:layout_constraintTop_toTopOf="@+id/buttonCreditor" />
+
+        <TextView
+            android:id="@+id/textPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="245dp"
+            android:layout_marginTop="20dp"
+            android:letterSpacing=".059"
+            android:lineHeight="22dp"
+            android:text="Essa aplicação refere-se a um sistema de navegação que utilizará o Software Development Kit (SDK) afim de determinar a posição do usuário fazendo uso de diversas características que podem ser atribuídas em sua configuração, além de dispor de históricos de sua navegação e sistema de posicionamento por satélites (GNSS)."
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:typeface="serif"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonCreditor" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            android:text="Desenvolvedores"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textPrincipal" />
+
+        <View
+            android:id="@+id/view"
+            style="@style/ContainerImagem"
+            android:background="@color/greenTransp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <ImageView
+            android:id="@+id/adelmo"
+            style="@style/ImagenCredito"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/adelmo"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintHorizontal_bias="0.327"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/nomeAdelmo"
+            style="@style/textoCredito"
+            android:text="Adelmo Menezes"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintHorizontal_bias="0.69"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/adelmo" />
+
+        <TextView
+            android:id="@+id/devAdelmo"
+            style="@style/textoCredito"
+            android:background="@color/white"
+            android:text="DESENVOLVEDOR"
+            android:textColor="@color/green"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintHorizontal_bias="0.714"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/nomeAdelmo" />
+
+        <View
+            android:id="@+id/viewHelena"
+            style="@style/ContainerImagem"
+            android:background="@color/redTransp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <ImageView
+            android:id="@+id/helena"
+            style="@style/ImagenCredito"
+            android:src="@drawable/helena"
+            app:layout_constraintEnd_toEndOf="@+id/viewHelena"
+            app:layout_constraintHorizontal_bias="0.327"
+            app:layout_constraintStart_toStartOf="@+id/viewHelena"
+            app:layout_constraintTop_toTopOf="@+id/viewHelena" />
+
+        <TextView
+            android:id="@+id/nomeHelena"
+            style="@style/textoCredito"
+            android:text="Helena Paiva"
+            app:layout_constraintEnd_toEndOf="@+id/viewHelena"
+            app:layout_constraintHorizontal_bias="0.69"
+            app:layout_constraintStart_toStartOf="@+id/viewHelena"
+            app:layout_constraintTop_toBottomOf="@+id/helena" />
+
+        <TextView
+            android:id="@+id/devHelena"
+            style="@style/textoCredito"
+            android:background="@color/white"
+            android:text="UX/UI E DESENVOLVEDORA"
+            android:textColor="@color/red"
+            app:layout_constraintEnd_toEndOf="@+id/viewHelena"
+            app:layout_constraintHorizontal_bias="0.714"
+            app:layout_constraintStart_toStartOf="@+id/viewHelena"
+            app:layout_constraintTop_toBottomOf="@+id/nomeHelena" />
+
+        <View
+            android:id="@+id/viewJunior"
+            style="@style/ContainerImagem"
+            android:background="@color/redTransp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <ImageView
+            android:id="@+id/junio"
+            style="@style/ImagenCredito"
+            android:src="@drawable/junior"
+            app:layout_constraintEnd_toEndOf="@+id/viewJunior"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="@+id/viewJunior"
+            app:layout_constraintTop_toTopOf="@+id/viewJunior" />
+
+        <TextView
+            android:id="@+id/nomeJunior"
+            style="@style/textoCredito"
+            android:text="Valdomiro Júnior"
+            app:layout_constraintEnd_toEndOf="@+id/viewJunior"
+            app:layout_constraintStart_toStartOf="@+id/viewJunior"
+            app:layout_constraintTop_toBottomOf="@+id/junio" />
+
+        <TextView
+            android:id="@+id/devJunior"
+            style="@style/textoCredito"
+            android:background="@color/white"
+            android:text="DESENVOLVEDOR"
+            android:textColor="@color/red"
+            app:layout_constraintBottom_toBottomOf="@+id/viewJunior"
+            app:layout_constraintEnd_toEndOf="@+id/viewJunior"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="@+id/viewJunior"
+            app:layout_constraintTop_toBottomOf="@+id/nomeJunior"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/viewBuri"
+            style="@style/ContainerImagem"
+            android:background="@color/greenTransp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/viewJunior"
+            app:layout_constraintTop_toBottomOf="@+id/viewHelena" />
+
+        <ImageView
+            android:id="@+id/buri"
+            style="@style/ImagenCredito"
+            android:src="@drawable/buri"
+            app:layout_constraintEnd_toEndOf="@+id/viewBuri"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="@+id/viewBuri"
+            app:layout_constraintTop_toTopOf="@+id/viewBuri" />
+
+        <TextView
+            android:id="@+id/nomeBuri"
+            style="@style/textoCredito"
+            android:text="Cleberson Buri"
+            app:layout_constraintEnd_toEndOf="@+id/viewBuri"
+            app:layout_constraintStart_toStartOf="@+id/viewBuri"
+            app:layout_constraintTop_toBottomOf="@+id/buri" />
+
+        <TextView
+            android:id="@+id/devBuri"
+            style="@style/textoCredito"
+            android:background="@color/white"
+            android:text="DESENVOLVEDOR"
+            android:textColor="@color/green"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBuri"
+            app:layout_constraintEnd_toEndOf="@+id/viewBuri"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="@+id/viewBuri"
+            app:layout_constraintTop_toBottomOf="@+id/nomeBuri"
+           />
+
+        <View
+            android:id="@+id/viewMauricio"
+            style="@style/ContainerImagem"
+            android:background="@color/greenTransp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewJunior" />
+
+        <ImageView
+            android:id="@+id/mauricio"
+            style="@style/ImagenCredito"
+            android:src="@drawable/mauricio"
+            app:layout_constraintEnd_toEndOf="@+id/viewMauricio"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="@+id/viewMauricio"
+            app:layout_constraintTop_toTopOf="@+id/viewMauricio" />
+
+        <TextView
+            android:id="@+id/nomeMauricio"
+            style="@style/textoCredito"
+            android:text="Maurício"
+
+            app:layout_constraintEnd_toEndOf="@+id/viewMauricio"
+            app:layout_constraintStart_toStartOf="@+id/viewMauricio"
+            app:layout_constraintTop_toBottomOf="@+id/mauricio" />
+
+        <TextView
+            android:id="@+id/devMauricio"
+            style="@style/textoCredito"
+            android:background="@color/white"
+            android:text="DESENVOLVEDOR"
+            android:textColor="@color/green"
+            app:layout_constraintBottom_toBottomOf="@+id/viewMauricio"
+            app:layout_constraintEnd_toEndOf="@+id/viewMauricio"
+            app:layout_constraintStart_toStartOf="@+id/viewMauricio"
+            app:layout_constraintTop_toBottomOf="@+id/nomeMauricio" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
