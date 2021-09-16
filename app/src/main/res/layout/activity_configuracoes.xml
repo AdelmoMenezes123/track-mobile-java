@@ -1,75 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@color/white"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical"
+    tools:context=".Creditos">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <ExpandableListView
+        android:id="@+id/expandable"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
-        tools:context=".Configuracoes">
-
-        <ImageView
-            android:id="@+id/icone_volta"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="28dp"
-            android:src="@drawable/voltar"
-            app:layout_constraintEnd_toStartOf="@+id/voltar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/voltar"
-            android:layout_width="56dp"
-            android:layout_height="27dp"
-            android:layout_marginTop="28dp"
-
-            android:layout_marginEnd="264dp"
-            android:letterSpacing="0.1"
-            android:text="Voltar"
-            android:textColor="@color/green"
-            android:textSize="19dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/buttonConfig"
-            android:layout_width="354dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/red"
-
-
-            android:backgroundTint="@color/green"
-            android:radius="10dp"
-            app:circularflow_angles="90dp"
-            app:cornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/icone_volta" />
-
-        <TextView
-            android:layout_width="247dp"
-            android:layout_height="39dp"
-            android:text="CONFIGURAÇÕES"
-
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/buttonConfig"
-            app:layout_constraintEnd_toEndOf="@+id/buttonConfig"
-            app:layout_constraintStart_toStartOf="@+id/buttonConfig"
-            app:layout_constraintTop_toTopOf="@+id/buttonConfig" />
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+         />
+</LinearLayout>
