@@ -28,6 +28,7 @@ android {
     lintOptions {
         checkDependencies true
     }
+    apply plugin: 'java'
 }
 
 dependencies {
