@@ -173,6 +173,39 @@
                 </RadioGroup>
                 <!--FIM AREA INPUTS TIPO MAPA-->
 
+                <!-- AREA DE INFORMACOES DE TRAFEGO -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                        <View style="@style/view_buton_config"
+                            android:background="@drawable/radius_config" />
+
+                        <ImageView style="@style/icon_buton_config"
+                            android:src="@drawable/ic_trafego" />
+
+                        <TextView style="@style/texto_buton_config"
+                            android:textColor="@color/green"
+                            android:layout_marginStart="70dp"
+                            android:text="Informações de Trafego" />
+                </RelativeLayout>
+
+                <!--AREA INPUTS TIPO MAPA-->
+                <RadioGroup  style="@style/inputRadius">
+                        <RadioButton style="@style/buttonRadius"
+                            android:id="@+id/radio_ligado"
+                            android:textColor="@color/dark"
+                            android:buttonTint="@color/dark"
+                            android:text="Ligado" />
+                        <RadioButton style="@style/buttonRadius"
+                            android:id="@+id/radio_desligado"
+                            android:buttonTint="@color/dark"
+                            android:textColor="@color/dark"
+                            android:text="Desligado" />
+                </RadioGroup>
+                <!--FIM AREA INPUTS TIPO MAPA-->
+
                 <!-- AREA DE SALVAR DADOS -->
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -185,13 +218,19 @@
                             android:layout_alignParentRight="true"
                             android:background="@drawable/radius"
                             android:textColor="@color/white" />
-                        <ImageView style="@style/icon_buton_config"
+
+                        <ImageView
+                            style="@style/icon_buton_config"
                             android:layout_alignParentRight="true"
-                            android:layout_marginEnd="140dp"
                             android:layout_centerHorizontal="true"
+                            android:layout_marginStart="250dp"
+                            android:layout_marginTop="250dp"
+                            android:layout_marginEnd="250dp"
+                            android:layout_marginBottom="250dp"
                             android:background="@drawable/ic_check" />
                         <TextView style="@style/texto_buton_config"
                             android:textColor="@color/white"
+                            android:textSize="30dp"
                             android:layout_marginStart="250dp"
                             android:text="SALVAR" />
                 </RelativeLayout>

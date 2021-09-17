@@ -172,8 +172,9 @@
             android:layout_height="wrap_content">
 
                 <!--BUTTOM CREDITO-->
-            <View style="@style/button_navegacao"
+            <View
                 android:id="@+id/creditos"
+                style="@style/button_navegacao"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/radius"
                 android:backgroundTint="@color/orangeTransp" />
@@ -194,7 +195,7 @@
             <TextView
                 style="@style/title_Navegacoes"
                 android:layout_centerHorizontal="true"
-                android:text="HISTÓRICO"
+                android:text="CRÉDITOS"
                 android:textColor="@color/dark" />
         </RelativeLayout>
 
