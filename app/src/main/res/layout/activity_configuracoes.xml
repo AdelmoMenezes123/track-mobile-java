@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/linear"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".Creditos">
 
+        <RelativeLayout style="@style/relative">
+                <ImageView android:id="@+id/icon_voltar"
+                    style="@style/iconVoltar"
+                    android:src="@drawable/voltar"
+                    />
 
-    <ExpandableListView
-        android:id="@+id/expandable"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-         />
+                <TextView android:id="@+id/voltar"
+                    android:text="Voltar"
+                    android:textColor="@color/green"
+                    style="@style/textVoltar"
+                    />
+        </RelativeLayout>
+
+        <Button
+            style="@style/button_Init"
+            android:background="@drawable/radius"
+            android:text="CONFIGURAÇÕES"
+        />
 </LinearLayout>

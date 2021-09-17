@@ -30,4 +30,37 @@
         <item name="android:color">@color/black</item>
     </style>
 
+<!--    BUTTON INICIAL RADIUS-->
+    <style name="button_Init" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">352dp</item>
+        <item name="android:layout_height">72dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textSize">26dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--    LINEAR lAYOUT-->
+    <style name="linear" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">20dp</item>
+    </style>
+    <!--    RELATIVE lAYOUT-->
+    <style name="relative" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <!--    ICONE VOLTAR-->
+    <style name="iconVoltar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">27dp</item>
+        <item name="android:layout_height">27dp</item>
+    </style>
+    <!--    TEXTO VOLTAR-->
+    <style name="textVoltar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">27dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

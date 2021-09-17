@@ -1,89 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/linear"
     android:background="@color/white"
-    android:backgroundTint="@color/white"
+    android:orientation="vertical"
     tools:context=".Apresentacao">
 
-    <TextView
-        android:id="@+id/textHome"
-        android:layout_width="306dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="50dp"
-        android:text="Bem-Vindo ao"
+    <!--    TEXTO BEM VINDO-->
+    <RelativeLayout style="@style/relative">
 
-        android:textAlignment="center"
-        android:textColor="@color/green"
-        android:textSize="45dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bem-Vindo ao"
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textSize="45dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    <!--    IMAGEM TRACK-->
     <ImageView
-        android:id="@+id/logoTopo"
-        android:layout_width="184dp"
-        android:layout_height="88dp"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/logo_topo_black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textHome" />
-
+        android:src="@drawable/logo_topo_black" />
+    <!--    IMAGEM PRINCIPAL-->
     <ImageView
-        android:id="@+id/logoMeio"
-        android:layout_width="301dp"
-        android:layout_height="311dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="299dp"
+        android:layout_height="328dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/logo_meio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/logoTopo" />
+        android:translationX="50dp" />
+    <!--TEXT BAIXO DA IMAGEN-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textExperiecia"
-        android:layout_width="160dp"
-        android:layout_height="78dp"
-        android:layout_marginBottom="1dp"
-        android:paddingTop="10dp"
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Experimente o TRACK, e obtenha a melhor solução!"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
-
-        android:text="Experimente o TRACK, e obtenha a melhor solução!"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:typeface="sans"
-        app:layout_constraintBottom_toTopOf="@+id/buttonApresentacao"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoMeio" />
-
-    <Button
-        android:id="@+id/buttonApresentacao"
-        android:layout_width="354dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="2dp"
-        android:backgroundTint="@color/green"
-
-        android:text="Inicio"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:cornerRadius="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textExperiecia" />
+        <Button
+            android:id="@+id/buttonApresentacao"
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text"
+            android:layout_centerInParent="true"
+            android:background="@drawable/radius"
+            android:text="Inicio"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:translationY="25dp" />
+    </RelativeLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
