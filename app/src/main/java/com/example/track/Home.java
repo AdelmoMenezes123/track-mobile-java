@@ -35,7 +35,7 @@ public class Home extends AppCompatActivity {
         });
     }
     private void IniciaComponent(){
-        entrarConfig = (View) findViewById(R.id.config);
+        entrarConfig = (View) findViewById(R.id.configuracoes);
         entrarCredito = (View) findViewById(R.id.creditos);
     }
 }

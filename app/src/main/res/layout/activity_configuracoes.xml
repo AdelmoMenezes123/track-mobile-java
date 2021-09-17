@@ -7,21 +7,22 @@
     android:background="@color/white"
     tools:context=".Creditos">
 
-        <RelativeLayout style="@style/relative">
-                <ImageView android:id="@+id/icon_voltar"
-                    style="@style/iconVoltar"
-                    android:src="@drawable/voltar"
-                    />
+        <RelativeLayout style="@style/relative" android:layout_marginTop="50dp">
 
-                <TextView android:id="@+id/voltar"
-                    android:text="Voltar"
-                    android:textColor="@color/green"
+                <ImageView
+                    android:id="@+id/icon_voltar"
+                    style="@style/iconVoltar"
+                    android:src="@drawable/voltar" />
+
+                <TextView
+                    android:id="@+id/voltar"
                     style="@style/textVoltar"
-                    />
+                    android:text="Voltar"
+                    android:textColor="@color/green" />
         </RelativeLayout>
 
         <Button
-            style="@style/button_Init"
+            style="@style/button_secondary"
             android:background="@drawable/radius"
             android:text="CONFIGURAÇÕES"
         />

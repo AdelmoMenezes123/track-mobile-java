@@ -6,283 +6,361 @@
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:backgroundTint="@color/white"
+        android:orientation="vertical"
         android:padding="20dp"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
         tools:context=".Home">
 
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="49dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="64dp"
+        <!--   TEXTO E ICONE-->
+        <RelativeLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            android:text="Olá,"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <!-- TEXTO-->
+            <TextView style="@style/textVoltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="0dp"
+                android:text="Olá,"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
+            <!--ICON-->
+            <ImageView style="@style/iconVoltar"
+                android:layout_width="36dp"
+                android:layout_height="27dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/icon_sino"
+                />
+        </RelativeLayout>
+
+        <!--  TEXTO VISITANTE-->
         <TextView
-            android:id="@+id/text2"
-            android:layout_width="95dp"
-            android:layout_height="21dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-
-            android:lineHeight="27dp"
+            android:layout_marginLeft="0dp"
             android:text="visitante,"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text1" />
+            android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/icone_cino"
-            android:layout_width="36dp"
-            android:layout_height="27dp"
-            android:layout_marginTop="68dp"
-
-            android:lineHeight="27dp"
-            android:src="@drawable/icon_sino"
-            android:text="Olá,"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.947"
-            app:layout_constraintStart_toEndOf="@+id/text1"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/buttonMenuPrincipal"
-            android:layout_width="354dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="30dp"
-            android:background="@color/red"
-            android:backgroundTint="@color/green"
-
-
-            android:radius="10dp"
-            app:circularflow_angles="90dp"
-            app:cornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text2" />
-
-        <TextView
-            android:layout_width="247dp"
-            android:layout_height="39dp"
+        <!-- BUTTON INITIAL-->
+        <Button style="@style/button_secondary"
             android:text="MENU PRINCIPAL"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/radius"/>
 
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/buttonMenuPrincipal"
-            app:layout_constraintEnd_toEndOf="@+id/buttonMenuPrincipal"
-            app:layout_constraintStart_toStartOf="@+id/buttonMenuPrincipal"
-            app:layout_constraintTop_toTopOf="@+id/buttonMenuPrincipal" />
+        <!-- BUTOES DE CONFIG E NAVEGACAO-->
+        <RelativeLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <View
-            android:id="@+id/config"
-            style="@style/ContainerComponents"
-            android:layout_marginTop="20dp"
-            android:background="@color/purpleTransp"
-            app:layout_constraintEnd_toStartOf="@+id/navega"
-            app:layout_constraintHorizontal_bias="0.207"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonMenuPrincipal" />
+            <!--BUTTOM CONFIG-->
+            <View style="@style/button_navegacao"
+                android:id="@+id/configuracoes"
+                android:background="@drawable/radius"
+                android:backgroundTint="@color/purpleTransp" />
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            <!-- ICON CONFIG -->
+            <ImageView style="@style/img_navegacao"
+                android:background="@drawable/config"
+                android:rotation="-21" />
 
-            android:src="@drawable/config"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/config"
-            app:layout_constraintEnd_toEndOf="@+id/config"
-            app:layout_constraintStart_toStartOf="@+id/config"
-            app:layout_constraintTop_toTopOf="@+id/config" />
+            <!--BUTTOM NAV-->
+            <View
+                android:id="@+id/navegacao"
+                style="@style/button_navegacao"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/radius"
+                android:backgroundTint="@color/orangeTransp" />
 
-        <TextView
-            android:id="@+id/textConfig"
-            android:layout_width="147dp"
-            android:layout_height="30dp"
+            <!--ICON NAV-->
+            <ImageView style="@style/img_navegacao"
+                android:layout_marginEnd="50dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/nav" />
+        </RelativeLayout>
 
-            android:layout_marginTop="8dp"
-            android:text="CONFIGURAÇÕES"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.06"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/config" />
+        <!-- BUTOES DE GNSS E HISTORICO-->
+        <RelativeLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <View
-            android:id="@+id/navega"
-            style="@style/ContainerComponents"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
+            <!--BUTTOM GNSS-->
+            <View style="@style/button_navegacao"
+                android:id="@+id/gnss"
+                android:background="@drawable/radius"
+                android:backgroundTint="@color/redTransp" />
 
-            android:background="@color/orangeTransp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonMenuPrincipal" />
+            <!--BUTTOM GNSS-->
+            <ImageView style="@style/img_navegacao"
+                android:background="@drawable/gnss" />
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            <!--BUTTOM HISTORICO-->
+            <View style="@style/button_navegacao"
+                android:id="@+id/historico"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/radius"
+                android:backgroundTint="@color/greenTransp"/>
 
-            android:src="@drawable/nav"
+            <!--BUTTOM HISTORICO-->
+            <ImageView style="@style/img_navegacao"
+                android:layout_marginEnd="50dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/historico" />
+        </RelativeLayout>
 
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/navega"
-            app:layout_constraintEnd_toEndOf="@+id/navega"
-            app:layout_constraintStart_toStartOf="@+id/navega"
-            app:layout_constraintTop_toTopOf="@+id/navega" />
+        <!-- BUTOES DE GNSS E HISTORICO-->
+        <RelativeLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textNav"
-            android:layout_width="140dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp"
+                <!--BUTTOM CREDITO-->
+            <View style="@style/button_navegacao"
+                android:id="@+id/creditos"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/radius"
+                android:backgroundTint="@color/orangeTransp" />
 
-            android:text="NAVEGAÇÃO"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.688"
-            app:layout_constraintStart_toEndOf="@+id/textConfig"
-            app:layout_constraintTop_toBottomOf="@+id/navega" />
+                <!--BUTTOM CREDITO-->
+                <ImageView style="@style/img_navegacao"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/creddito" />
+        </RelativeLayout>
 
-        <View
-            android:id="@+id/gnss"
-            style="@style/ContainerComponents"
-            android:layout_marginTop="20dp"
-            android:background="@color/redTransp"
-            app:layout_constraintEnd_toStartOf="@+id/historico"
-            app:layout_constraintHorizontal_bias="0.246"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textConfig" />
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-
-            android:src="@drawable/gnss"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/gnss"
-            app:layout_constraintEnd_toEndOf="@+id/gnss"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="@+id/gnss"
-            app:layout_constraintTop_toTopOf="@+id/gnss"
-            app:layout_constraintVertical_bias="0.376" />
-
-        <TextView
-            android:id="@+id/textGnss"
-            android:layout_width="140dp"
-            android:layout_height="30dp"
-
-            android:layout_marginTop="8dp"
-            android:text="GNSS"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toStartOf="@+id/textHistorico"
-            app:layout_constraintHorizontal_bias="0.21"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gnss" />
-
-        <View
-            android:id="@+id/historico"
-            style="@style/ContainerComponents"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/greenTransp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textNav" />
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-
-            android:src="@drawable/historico"
-
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/historico"
-            app:layout_constraintEnd_toEndOf="@+id/historico"
-            app:layout_constraintStart_toStartOf="@+id/historico"
-            app:layout_constraintTop_toTopOf="@+id/historico" />
-
-        <TextView
-            android:id="@+id/textHistorico"
-            android:layout_width="140dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp"
-
-            android:layout_marginEnd="16dp"
-            android:text="HISTORICO"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/historico" />
+<!--        <View-->
+<!--            android:id="@+id/buttonMenuPrincipal"-->
+<!--            android:layout_width="354dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:background="@color/red"-->
+<!--            android:backgroundTint="@color/green"-->
 
 
-        <View
-            android:id="@+id/creditos"
-            style="@style/ContainerComponents"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="16dp"
-            android:background="@color/orangeTransp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textGnss"
-            app:layout_constraintVertical_bias="0.0" />
+<!--            android:radius="10dp"-->
+<!--            app:circularflow_angles="90dp"-->
+<!--            app:cornerRadius="20dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/text2" />-->
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="50dp"
+<!--        <TextView-->
+<!--            android:layout_width="247dp"-->
+<!--            android:layout_height="39dp"-->
+<!--            android:text="MENU PRINCIPAL"-->
 
-            android:layout_height="50dp"
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="30dp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/buttonMenuPrincipal"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/buttonMenuPrincipal"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/buttonMenuPrincipal"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/buttonMenuPrincipal" />-->
 
-            android:src="@drawable/creddito"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/creditos"
-            app:layout_constraintEnd_toEndOf="@+id/creditos"
-            app:layout_constraintStart_toStartOf="@+id/creditos"
-            app:layout_constraintTop_toTopOf="@+id/creditos" />
+<!--        <View-->
+<!--            android:id="@+id/config"-->
+<!--            style="@style/ContainerComponents"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:background="@color/purpleTransp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/navega"-->
+<!--            app:layout_constraintHorizontal_bias="0.207"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/buttonMenuPrincipal" />-->
 
-        <TextView
-            android:id="@+id/textCredito"
-            android:layout_width="140dp"
-            android:layout_height="30dp"
+<!--        <ImageView-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
 
-            android:text="CRÉDITOS"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/creditos" />
+<!--            android:src="@drawable/config"-->
+<!--            android:textSize="18dp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/config"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/config"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/config"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/config" />-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/textConfig"-->
+<!--            android:layout_width="147dp"-->
+<!--            android:layout_height="30dp"-->
+
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:text="CONFIGURAÇÕES"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="18dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.06"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/config" />-->
+
+<!--        <View-->
+<!--            android:id="@+id/navega"-->
+<!--            style="@style/ContainerComponents"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+
+<!--            android:background="@color/orangeTransp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/buttonMenuPrincipal" />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+
+<!--            android:src="@drawable/nav"-->
+
+<!--            android:textSize="18dp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/navega"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/navega"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/navega"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/navega" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textNav"-->
+<!--            android:layout_width="140dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginTop="8dp"-->
+
+<!--            android:text="NAVEGAÇÃO"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="18dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.688"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/textConfig"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/navega" />-->
+
+<!--        <View-->
+<!--            android:id="@+id/gnss"-->
+<!--            style="@style/ContainerComponents"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:background="@color/redTransp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/historico"-->
+<!--            app:layout_constraintHorizontal_bias="0.246"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textConfig" />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_marginTop="20dp"-->
+
+<!--            android:src="@drawable/gnss"-->
+<!--            android:textSize="18dp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/gnss"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/gnss"-->
+<!--            app:layout_constraintHorizontal_bias="0.494"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/gnss"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/gnss"-->
+<!--            app:layout_constraintVertical_bias="0.376" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textGnss"-->
+<!--            android:layout_width="140dp"-->
+<!--            android:layout_height="30dp"-->
+
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:text="GNSS"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="18dp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/textHistorico"-->
+<!--            app:layout_constraintHorizontal_bias="0.21"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/gnss" />-->
+
+<!--        <View-->
+<!--            android:id="@+id/historico"-->
+<!--            style="@style/ContainerComponents"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:background="@color/greenTransp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textNav" />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+
+<!--            android:src="@drawable/historico"-->
+
+<!--            android:textSize="18dp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/historico"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/historico"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/historico"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/historico" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textHistorico"-->
+<!--            android:layout_width="140dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginTop="8dp"-->
+
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:text="HISTORICO"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="18dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/historico" />-->
+
+
+<!--        <View-->
+<!--            android:id="@+id/creditos"-->
+<!--            style="@style/ContainerComponents"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            android:background="@color/orangeTransp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.496"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textGnss"-->
+<!--            app:layout_constraintVertical_bias="0.0" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView"-->
+<!--            android:layout_width="50dp"-->
+
+<!--            android:layout_height="50dp"-->
+
+<!--            android:src="@drawable/creddito"-->
+<!--            android:textSize="18dp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/creditos"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/creditos"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/creditos"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/creditos" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textCredito"-->
+<!--            android:layout_width="140dp"-->
+<!--            android:layout_height="30dp"-->
+
+<!--            android:text="CRÉDITOS"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="18dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/creditos" />-->
+
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>

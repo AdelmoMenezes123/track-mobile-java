@@ -4,14 +4,12 @@
 
     <stroke
         android:width="1dp"
-        android:color="@color/white" />
-    <solid
         android:color="@color/green" />
+    <solid
+        android:color="@color/white"/>
     <gradient
-        android:centerX="@integer/material_motion_duration_long_2"
-        android:centerY="@integer/material_motion_duration_medium_1"
         android:startColor="@color/greenTransp"
-        android:centerColor="@color/green"
+        android:endColor="@color/green"
         />
     <padding
         android:left="20dp"
