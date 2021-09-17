@@ -225,7 +225,6 @@
                             android:background="@drawable/ic_check" />
                         <TextView style="@style/texto_buton_config"
                             android:textColor="@color/white"
-                            android:textSize="30dp"
                             android:layout_marginStart="250dp"
                             android:text="SALVAR" />
                 </RelativeLayout>
