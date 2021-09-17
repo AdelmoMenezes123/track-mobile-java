@@ -15,6 +15,9 @@
     <color name="red">#E74C3C</color>
     <color name="redTransp">#ff988d</color>
     <color name="green">#2ECC71</color>
-    <color name="greenTransp">#6fe6a2</color>
+    <color name="greenTransp">#adfbce</color>
+
+
+    <color name="dark">#808080</color>
 
 </resources>

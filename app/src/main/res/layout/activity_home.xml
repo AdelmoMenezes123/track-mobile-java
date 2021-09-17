@@ -100,9 +100,9 @@
             <!-- TITULO DO BOTAO DE CONFIGURACOES-->
             <TextView
                 style="@style/title_Navegacoes"
-                android:text="CONFIGURAÇÕES"
                 android:paddingStart="13dp"
-                android:textColor="@color/black" />
+                android:text="CONFIGURAÇÕES"
+                android:textColor="@color/dark" />
 
             <!-- TITULO DO BOTAO DE NAVEGACOES-->
             <TextView
@@ -110,7 +110,7 @@
                 android:layout_alignParentRight="true"
                 android:paddingEnd="26dp"
                 android:text="NAVEGAÇÃO"
-                android:textColor="@color/black" />
+                android:textColor="@color/dark" />
         </RelativeLayout>
 
         <!-- BUTOES DE GNSS E HISTORICO-->
@@ -152,9 +152,9 @@
             <!-- TITULO DO BOTAO DE GNSS-->
             <TextView
                 style="@style/title_Navegacoes"
-                android:text="GNSS"
                 android:paddingStart="50dp"
-                android:textColor="@color/black" />
+                android:text="GNSS"
+                android:textColor="@color/dark" />
 
             <!-- TITULO DO BOTAO DE HISTORICO-->
             <TextView
@@ -162,7 +162,7 @@
                 android:layout_alignParentRight="true"
                 android:paddingEnd="30dp"
                 android:text="HISTÓRICO"
-                android:textColor="@color/black" />
+                android:textColor="@color/dark" />
         </RelativeLayout>
 
         <!-- BUTAO DE CREDITO-->
@@ -195,7 +195,7 @@
                 style="@style/title_Navegacoes"
                 android:layout_centerHorizontal="true"
                 android:text="HISTÓRICO"
-                android:textColor="@color/black" />
+                android:textColor="@color/dark" />
         </RelativeLayout>
 
     </LinearLayout>

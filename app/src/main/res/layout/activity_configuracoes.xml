@@ -49,11 +49,31 @@
                             android:text="Coordenadas Geográficas" />
                 </RelativeLayout>
 
+                <!--AREA INPUTS CORDENADAS GEOGRAFICAS-->
+                <RadioGroup  style="@style/inputRadius">
+                        <RadioButton style="@style/buttonRadius"
+                            android:id="@+id/radio_decimal"
+                            android:textColor="@color/dark"
+                            android:buttonTint="@color/dark"
+                            android:text="Grau decimal" />
+                        <RadioButton style="@style/buttonRadius"
+                            android:id="@+id/radio_minuto"
+                            android:buttonTint="@color/dark"
+                            android:textColor="@color/dark"
+                            android:text="Grau-Minuto decimal" />
+                        <RadioButton style="@style/buttonRadius"
+                            android:id="@+id/radio_segundo"
+                            android:buttonTint="@color/dark"
+                            android:textColor="@color/dark"
+                            android:text="Grau-Minuto-Segundo decimal" />
+                </RadioGroup>
+                <!--FIM AREA INPUTS CORDENADAS GEOGRAFICAS-->
+
                 <!-- AREA DE VELOCIDADE -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp">
+                    android:layout_marginTop="10dp">
 
                         <View style="@style/view_buton_config"
                             android:background="@drawable/radius_config" />
@@ -67,11 +87,26 @@
                             android:text="Velocidade" />
                 </RelativeLayout>
 
+                <!--AREA INPUTS VELOCIDADE-->
+                <RadioGroup  style="@style/inputRadius">
+                        <RadioButton style="@style/buttonRadius"
+                            android:id="@+id/radio_quilometro"
+                            android:textColor="@color/dark"
+                            android:buttonTint="@color/dark"
+                            android:text="Km/h (quilometro por hora) " />
+                        <RadioButton style="@style/buttonRadius"
+                            android:id="@+id/radio_milha"
+                            android:buttonTint="@color/dark"
+                            android:textColor="@color/dark"
+                            android:text="Mph (milhas por hora)" />
+                </RadioGroup>
+                <!--FIM AREA INPUTS VELOCIDADE-->
+
                 <!-- AREA DE ORIENTACAO DO MAPA -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp">
+                    android:layout_marginTop="10dp">
 
                         <View style="@style/view_buton_config"
                             android:background="@drawable/radius_config" />
@@ -85,11 +120,31 @@
                             android:text="Orientação do Mapa" />
                 </RelativeLayout>
 
+                <!--AREA INPUTS ORIENTACAO MAPA-->
+                <RadioGroup  style="@style/inputRadius">
+                        <RadioButton style="@style/buttonRadius"
+                            android:id="@+id/radio_norte"
+                            android:textColor="@color/dark"
+                            android:buttonTint="@color/dark"
+                            android:text="North Up (Norte do Mapa) " />
+                        <RadioButton style="@style/buttonRadius"
+                            android:id="@+id/radio_topo"
+                            android:buttonTint="@color/dark"
+                            android:textColor="@color/dark"
+                            android:text="Course Up (Topo do Mapa) " />
+                        <RadioButton style="@style/buttonRadius"
+                            android:id="@+id/radio_nenhum"
+                            android:buttonTint="@color/dark"
+                            android:textColor="@color/dark"
+                            android:text="Nenhuma" />
+                </RadioGroup>
+                <!--FIM AREA INPUTS ORIENTACAO MAPA-->
+
                 <!-- AREA DE TIPO DE MAPA -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp">
+                    android:layout_marginTop="10dp">
 
                         <View style="@style/view_buton_config"
                             android:background="@drawable/radius_config" />
@@ -102,6 +157,21 @@
                             android:layout_marginStart="70dp"
                             android:text="Tipo do Mapa" />
                 </RelativeLayout>
+
+                <!--AREA INPUTS TIPO MAPA-->
+                <RadioGroup  style="@style/inputRadius">
+                        <RadioButton style="@style/buttonRadius"
+                            android:id="@+id/radio_vetorial"
+                            android:textColor="@color/dark"
+                            android:buttonTint="@color/dark"
+                            android:text="Vetorial" />
+                        <RadioButton style="@style/buttonRadius"
+                            android:id="@+id/radio_satelite"
+                            android:buttonTint="@color/dark"
+                            android:textColor="@color/dark"
+                            android:text="Imagem de Satélite" />
+                </RadioGroup>
+                <!--FIM AREA INPUTS TIPO MAPA-->
 
                 <!-- AREA DE SALVAR DADOS -->
                 <RelativeLayout

@@ -86,7 +86,7 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <!--TELACONFIGURACAO-->
+    <!--TELA CONFIGURACAO-->
     <!--VIEW-->
     <style name="view_buton_config" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:layout_width">355dp</item>
@@ -106,7 +106,22 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20dp</item>
         <item name="android:layout_centerVertical">true</item>
+    </style>
 
-
+    <!--IMPUT RADIUS-->
+    <style name="inputRadius" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <!-- RADIU BUTTON   -->
+    <style name="buttonRadius" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:onClick">onRadioButtonClicked</item>
     </style>
 </resources>

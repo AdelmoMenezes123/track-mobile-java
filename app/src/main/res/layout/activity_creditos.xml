@@ -1,4 +1,4 @@
-<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.core.widget.NestedScrollView
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,7 +25,8 @@
                 android:id="@+id/voltar"
                 style="@style/textVoltar"
                 android:text="Voltar"
-                android:textColor="@color/green" />
+                android:textColor="@color/green"
+                tools:ignore="HardcodedText" />
         </RelativeLayout>
         <!--BUTAO CREDITOS-->
         <Button
@@ -40,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Essa aplicação refere-se a um sistema de navegação que utilizará o Software Development Kit (SDK) afim de determinar a posição do usuário fazendo uso de diversas características que podem ser atribuídas em sua configuração, além de dispor de históricos de sua navegação e sistema de posicionamento por satélites (GNSS)."
-            android:textColor="#808080"
+            android:textColor="@color/dark"
             android:lineHeight="21dp"
             android:letterSpacing=".03"
             android:textAlignment="center"
