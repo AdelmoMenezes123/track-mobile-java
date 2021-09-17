@@ -121,7 +121,7 @@
                 android:layout_marginBottom="-30dp"
                 android:textAlignment="center"
                 android:background="@color/white"
-                android:text="DESENVOLVEDOR"
+                android:text="DEV FULLSTACK"
                 android:textColor="@color/green" />
 
             <!-- DEV HELENA-->
@@ -197,9 +197,9 @@
                 style="@style/title_dev"
                 android:layout_alignBottom="@+id/nomeBuri"
                 android:layout_marginBottom="-30dp"
-                android:textAlignment="center"
                 android:background="@color/white"
                 android:text="DESENVOLVEDOR"
+                android:textAlignment="center"
                 android:textColor="@color/red" />
 
             <!-- DEV HELENA-->
