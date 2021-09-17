@@ -1,29 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/linear"
-    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
     android:background="@color/white"
-    tools:context=".Creditos">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <RelativeLayout style="@style/relative" android:layout_marginTop="50dp">
+        <LinearLayout
+            style="@style/linear"
+            android:orientation="vertical"
+            android:background="@color/white"
+            tools:context=".Configuracoes">
 
-                <ImageView
-                    android:id="@+id/icon_voltar"
-                    style="@style/iconVoltar"
-                    android:src="@drawable/voltar" />
+                <RelativeLayout style="@style/relative" android:layout_marginTop="50dp">
+                        <!--ICON-->
+                        <ImageView style="@style/iconVoltar"
+                            android:id="@+id/icon_voltar"
+                            android:src="@drawable/voltar" />
 
-                <TextView
-                    android:id="@+id/voltar"
-                    style="@style/textVoltar"
-                    android:text="Voltar"
-                    android:textColor="@color/green" />
-        </RelativeLayout>
+                        <!--TEXTO-->
+                        <TextView style="@style/textVoltar"
+                            android:id="@+id/voltar"
+                            android:text="Voltar"
+                            android:textColor="@color/green" />
+                </RelativeLayout>
 
-        <Button
-            style="@style/button_secondary"
-            android:background="@drawable/radius"
-            android:text="CONFIGURAÇÕES"
-        />
-</LinearLayout>
+                <!--BUTAO PRINCIPAL-->
+                <Button style="@style/button_secondary"
+                    android:background="@drawable/radius"
+                    android:text="CONFIGURAÇÕES" />
+
+                <!--AREA DE COORDENADAS GEOGRAFICA-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp">
+
+                        <View style="@style/view_buton_config"
+                            android:background="@drawable/radius_config" />
+
+                        <ImageView style="@style/icon_buton_config"
+                            android:src="@drawable/ic_icon_location"/>
+
+                        <TextView style="@style/texto_buton_config"
+                            android:textColor="@color/green"
+                            android:layout_centerHorizontal="true"
+                            android:text="Coordenadas Geográficas" />
+                </RelativeLayout>
+
+                <!-- AREA DE VELOCIDADE -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp">
+
+                        <View style="@style/view_buton_config"
+                            android:background="@drawable/radius_config" />
+
+                        <ImageView style="@style/icon_buton_config"
+                            android:src="@drawable/ic_velocidade" />
+
+                        <TextView style="@style/texto_buton_config"
+                            android:textColor="@color/green"
+                            android:layout_marginStart="70dp"
+                            android:text="Velocidade" />
+                </RelativeLayout>
+
+                <!-- AREA DE ORIENTACAO DO MAPA -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp">
+
+                        <View style="@style/view_buton_config"
+                            android:background="@drawable/radius_config" />
+
+                        <ImageView style="@style/icon_buton_config"
+                            android:src="@drawable/ic_map" />
+
+                        <TextView style="@style/texto_buton_config"
+                            android:textColor="@color/green"
+                            android:layout_marginStart="70dp"
+                            android:text="Orientação do Mapa" />
+                </RelativeLayout>
+
+                <!-- AREA DE TIPO DE MAPA -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp">
+
+                        <View style="@style/view_buton_config"
+                            android:background="@drawable/radius_config" />
+
+                        <ImageView style="@style/icon_buton_config"
+                            android:src="@drawable/ic_tipo_mapa" />
+
+                        <TextView style="@style/texto_buton_config"
+                            android:textColor="@color/green"
+                            android:layout_marginStart="70dp"
+                            android:text="Tipo do Mapa" />
+                </RelativeLayout>
+
+                <!-- AREA DE SALVAR DADOS -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp">
+                        <!-- BUTOM -->
+                        <View
+                            android:layout_width="200dp"
+                            android:layout_height="77dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/radius"
+                            android:textColor="@color/white" />
+                        <ImageView style="@style/icon_buton_config"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginEnd="140dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/ic_check" />
+                        <TextView style="@style/texto_buton_config"
+                            android:textColor="@color/white"
+                            android:layout_marginStart="250dp"
+                            android:text="SALVAR" />
+                </RelativeLayout>
+        </LinearLayout>
+</androidx.core.widget.NestedScrollView>

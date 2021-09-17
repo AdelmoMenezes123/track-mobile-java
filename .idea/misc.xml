@@ -5,8 +5,10 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.27239583333333334" />
         <entry key="app/src/main/res/drawable/button_inicio.xml" value="0.27239583333333334" />
+        <entry key="app/src/main/res/drawable/ic_icon_location.xml" value="0.17203947368421052" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.27239583333333334" />
         <entry key="app/src/main/res/drawable/radius.xml" value="0.27239583333333334" />
+        <entry key="app/src/main/res/drawable/radius_config.xml" value="0.17203947368421052" />
         <entry key="app/src/main/res/layout/activity_apresentacao.xml" value="0.1921875" />
         <entry key="app/src/main/res/layout/activity_configuracoes.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_creditos.xml" value="0.24272323630981746" />
