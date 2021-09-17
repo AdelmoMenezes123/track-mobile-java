@@ -56,4 +56,33 @@
         <item name="android:layout_marginLeft">50dp</item>
         <item name="android:layout_marginTop">50dp</item>
     </style>
+    <!--    TITULO NAVEGACAO-->
+    <style name="title_Navegacoes" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">27dp</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- TELA CREDITOS-->
+    <!-- BUTAO-->
+    <style name="view_credito" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">170dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:padding">20dp</item>
+    </style>
+    <!-- IMG-->
+    <style name="img_credito" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
+    <!--    TITULO-->
+    <style name="title_dev" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">170dp</item>
+        <item name="android:layout_height">27dp</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
