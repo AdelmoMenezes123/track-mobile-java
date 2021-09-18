@@ -50,20 +50,24 @@
                 </RelativeLayout>
 
                 <!--AREA INPUTS CORDENADAS GEOGRAFICAS-->
-                <RadioGroup  style="@style/inputRadius">
+                <RadioGroup  style="@style/inputRadius" android:id="@+id/radio_cordenadas">
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_decimal"
                             android:textColor="@color/dark"
-                            android:buttonTint="@color/dark"
+                            android:onClick="checkButton1"
+                            android:checked="true"
+                            android:buttonTint="@color/green"
                             android:text="Grau decimal" />
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_minuto"
-                            android:buttonTint="@color/dark"
+                            android:buttonTint="@color/green"
+                            android:onClick="checkButton1"
                             android:textColor="@color/dark"
                             android:text="Grau-Minuto decimal" />
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_segundo"
-                            android:buttonTint="@color/dark"
+                            android:buttonTint="@color/green"
+                            android:onClick="checkButton1"
                             android:textColor="@color/dark"
                             android:text="Grau-Minuto-Segundo decimal" />
                 </RadioGroup>
@@ -88,15 +92,18 @@
                 </RelativeLayout>
 
                 <!--AREA INPUTS VELOCIDADE-->
-                <RadioGroup  style="@style/inputRadius">
+                <RadioGroup  style="@style/inputRadius" android:id="@+id/radio_Velocidade">
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_quilometro"
                             android:textColor="@color/dark"
-                            android:buttonTint="@color/dark"
+                            android:onClick="checkButton2"
+                            android:checked="true"
+                            android:buttonTint="@color/green"
                             android:text="Km/h (quilometro por hora) " />
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_milha"
-                            android:buttonTint="@color/dark"
+                            android:buttonTint="@color/green"
+                            android:onClick="checkButton2"
                             android:textColor="@color/dark"
                             android:text="Mph (milhas por hora)" />
                 </RadioGroup>
@@ -108,7 +115,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp">
 
-                        <View style="@style/view_buton_config"
+                        <View
+                            style="@style/view_buton_config"
                             android:background="@drawable/radius_config" />
 
                         <ImageView style="@style/icon_buton_config"
@@ -121,20 +129,24 @@
                 </RelativeLayout>
 
                 <!--AREA INPUTS ORIENTACAO MAPA-->
-                <RadioGroup  style="@style/inputRadius">
+                <RadioGroup  style="@style/inputRadius" android:id="@+id/radio_orientacao">
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_norte"
                             android:textColor="@color/dark"
-                            android:buttonTint="@color/dark"
+                            android:onClick="checkButton3"
+                            android:checked="true"
+                            android:buttonTint="@color/green"
                             android:text="North Up (Norte do Mapa) " />
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_topo"
-                            android:buttonTint="@color/dark"
+                            android:buttonTint="@color/green"
+                            android:onClick="checkButton3"
                             android:textColor="@color/dark"
                             android:text="Course Up (Topo do Mapa) " />
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_nenhum"
-                            android:buttonTint="@color/dark"
+                            android:buttonTint="@color/green"
+                            android:onClick="checkButton3"
                             android:textColor="@color/dark"
                             android:text="Nenhuma" />
                 </RadioGroup>
@@ -159,15 +171,18 @@
                 </RelativeLayout>
 
                 <!--AREA INPUTS TIPO MAPA-->
-                <RadioGroup  style="@style/inputRadius">
+                <RadioGroup  style="@style/inputRadius" android:id="@+id/radio_tipo">
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_vetorial"
                             android:textColor="@color/dark"
-                            android:buttonTint="@color/dark"
+                            android:onClick="checkButton4"
+                            android:checked="true"
+                            android:buttonTint="@color/green"
                             android:text="Vetorial" />
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_satelite"
-                            android:buttonTint="@color/dark"
+                            android:buttonTint="@color/green"
+                            android:onClick="checkButton4"
                             android:textColor="@color/dark"
                             android:text="Imagem de Satélite" />
                 </RadioGroup>
@@ -191,17 +206,20 @@
                             android:text="Informações de Trafego" />
                 </RelativeLayout>
 
-                <!--AREA INPUTS TIPO MAPA-->
-                <RadioGroup  style="@style/inputRadius">
+                <!--AREA INPUTS TRAFEGO-->
+                <RadioGroup  style="@style/inputRadius" android:id="@+id/radio_trafego">
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_ligado"
                             android:textColor="@color/dark"
-                            android:buttonTint="@color/dark"
+                            android:buttonTint="@color/green"
+                            android:onClick="checkButton5"
+                            android:checked="true"
                             android:text="Ligado" />
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_desligado"
-                            android:buttonTint="@color/dark"
+                            android:buttonTint="@color/green"
                             android:textColor="@color/dark"
+                            android:onClick="checkButton5"
                             android:text="Desligado" />
                 </RadioGroup>
                 <!--FIM AREA INPUTS TIPO MAPA-->
@@ -213,11 +231,13 @@
                     android:layout_marginTop="50dp">
                         <!-- BUTOM -->
                         <View
+                            android:id="@+id/enviar"
                             android:layout_width="200dp"
                             android:layout_height="77dp"
                             android:layout_alignParentRight="true"
                             android:background="@drawable/radius"
                             android:textColor="@color/white" />
+                        <!--IMG ENVIAR -->
                         <ImageView style="@style/icon_buton_config"
                             android:layout_alignParentRight="true"
                             android:layout_marginEnd="140dp"

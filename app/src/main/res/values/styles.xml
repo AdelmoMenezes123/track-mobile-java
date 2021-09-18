@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    BUTTON SECUNDARIO RADIUS-->
-    <style name="button_secondary" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="button_secondary" >
         <item name="android:layout_width">354dp</item>
         <item name="android:layout_height">85dp</item>
         <item name="android:layout_marginTop">10dp</item>
@@ -9,7 +9,7 @@
         <item name="android:textStyle">bold</item>
     </style>
     <!--    BUTTON INICIAL RADIUS-->
-    <style name="button_Init" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="button_Init">
         <item name="android:layout_width">352dp</item>
         <item name="android:layout_height">72dp</item>
         <item name="android:layout_marginTop">10dp</item>
@@ -17,23 +17,23 @@
         <item name="android:textStyle">bold</item>
     </style>
     <!--    LINEAR lAYOUT-->
-    <style name="linear" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="linear">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:padding">20dp</item>
     </style>
     <!--    RELATIVE lAYOUT-->
-    <style name="relative" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="relative">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
     <!--    ICONE VOLTAR-->
-    <style name="iconVoltar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="iconVoltar">
         <item name="android:layout_width">27dp</item>
         <item name="android:layout_height">27dp</item>
     </style>
     <!--    TEXTO VOLTAR-->
-    <style name="textVoltar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="textVoltar">
         <item name="android:layout_width">56dp</item>
         <item name="android:layout_height">27dp</item>
         <item name="android:layout_marginLeft">30dp</item>
@@ -44,20 +44,20 @@
     <!-- BUTOES DE NAVEGACOES DA PAGINA APRESENTACAO-->
 
     <!-- BUTAO-->
-    <style name="button_navegacao" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="button_navegacao">
         <item name="android:layout_width">147dp</item>
         <item name="android:layout_height">147dp</item>
         <item name="android:padding">20dp</item>
     </style>
     <!--ICONE DENTRO DO BUTAO-->
-    <style name="img_navegacao" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="img_navegacao">
         <item name="android:layout_width">47dp</item>
         <item name="android:layout_height">47dp</item>
         <item name="android:layout_marginLeft">50dp</item>
         <item name="android:layout_marginTop">50dp</item>
     </style>
     <!--    TITULO NAVEGACAO-->
-    <style name="title_Navegacoes" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="title_Navegacoes">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">27dp</item>
         <item name="android:textSize">16dp</item>
@@ -66,20 +66,20 @@
 
     <!-- TELA CREDITOS-->
     <!-- BUTAO-->
-    <style name="view_credito" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="view_credito">
         <item name="android:layout_width">170dp</item>
         <item name="android:layout_height">200dp</item>
         <item name="android:padding">20dp</item>
     </style>
     <!-- IMG-->
-    <style name="img_credito" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="img_credito">
         <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">100dp</item>
         <item name="android:layout_marginLeft">30dp</item>
         <item name="android:layout_marginTop">20dp</item>
     </style>
     <!--    TITULO-->
-    <style name="title_dev" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="title_dev">
         <item name="android:layout_width">170dp</item>
         <item name="android:layout_height">27dp</item>
         <item name="android:textSize">16dp</item>
@@ -88,19 +88,19 @@
 
     <!--TELA CONFIGURACAO-->
     <!--VIEW-->
-    <style name="view_buton_config" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="view_buton_config">
         <item name="android:layout_width">355dp</item>
         <item name="android:layout_height">70dp</item>
     </style>
     <!--ICON-->
-    <style name="icon_buton_config" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="icon_buton_config">
         <item name="android:layout_width">40dp</item>
         <item name="android:layout_height">40dp</item>
         <item name="android:layout_marginStart">20dp</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
     <!--TEXTO-->
-    <style name="texto_buton_config" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="texto_buton_config">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textStyle">bold</item>
@@ -109,19 +109,18 @@
     </style>
 
     <!--IMPUT RADIUS-->
-    <style name="inputRadius" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="inputRadius">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">20dp</item>
         <item name="android:orientation">vertical</item>
     </style>
     <!-- RADIU BUTTON   -->
-    <style name="buttonRadius" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="buttonRadius">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">10dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20dp</item>
-        <item name="android:onClick">onRadioButtonClicked</item>
     </style>
 </resources>
