@@ -3,13 +3,14 @@ package com.example.track;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 public class Creditos extends AppCompatActivity {
 
-    TextView volta;
+    TextView volta, versaoSDK;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +24,14 @@ public class Creditos extends AppCompatActivity {
                 startActivity(in);
             }
         });
+
+        String release = Build.VERSION.RELEASE;
+        int sdkVersion = Build.VERSION.SDK_INT;
+
+        versaoSDK.setText("Versão do Android: " + release +"   "+ "SDK: "+ sdkVersion);
     }
     private void IniciaComponent(){
         volta = (TextView) findViewById(R.id.voltar);
+        versaoSDK = (TextView) findViewById(R.id.versaoSDK);
     }
 }
