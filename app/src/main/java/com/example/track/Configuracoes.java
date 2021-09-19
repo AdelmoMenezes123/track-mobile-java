@@ -3,6 +3,7 @@ package com.example.track;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 
@@ -34,6 +40,8 @@ public class Configuracoes extends AppCompatActivity {
     View buttonEnviar;
     TextView voltaHome;
 
+    public static final String SHARED_PREFES = "sharedPrefes";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,21 +63,55 @@ public class Configuracoes extends AppCompatActivity {
         buttonEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<String> lista = new ArrayList();
-                lista.add(radioCordenadas.getText().toString());
-                lista.add(radioVelocidade.getText().toString());
-                lista.add(radioOrientacao.getText().toString());
-                lista.add(radioTipo.getText().toString());
-                lista.add(radioTrafegon.getText().toString());
+                // INICIANDO OS COMPONENTES DO BUTON RADIO
+                initComponentesToLista();
 
-//                for (int i = 0; i < lista.size(); i++) {
-//                lista.get(i);
-//                   new Toast.makeText(this, "sua lista : " + lista.get(i), Toast.LENGTH_SHORT).show();
-//                }
+                //INICIANDO A LISTA OS VALORES SELECIONADO NA CONFIG
+                String[] lista = {
+                        radioCordenadas.getText().toString(),
+                        radioVelocidade.getText().toString(),
+                        radioOrientacao.getText().toString(),
+                        radioTrafegon.getText().toString(),
+                        radioTipo.getText().toString()
+                };SQ
+
+                //PERCORRENDO A LISTA E MOSTRANDO OS VALORES NA TELA USANDO TOAST
+                for (String itens: lista) {
+                    Toast.makeText(getApplicationContext(), itens, Toast.LENGTH_SHORT).show();
+                }
+
+                //SALVANDOS OS DADOS
+                saveArrayList(lista);
+
+                // VOLTANDO A PAGINA HOME
+                Intent in = new Intent(Configuracoes.this, Home.class);
+                startActivity(in);
             }
         });
 
     }
+
+    //PEGANDO TODOS IDs  QUE TEM NO 'RADIO-GRUOP' E PESQUISANDO OS VALORES NO 'RADIO-BUTTON'
+    public void initComponentesToLista(){
+        int radioId;
+        radioId = groupCordenada.getCheckedRadioButtonId();
+        radioCordenadas = findViewById(radioId);
+
+         radioId = groupVelocidade.getCheckedRadioButtonId();
+        radioVelocidade = findViewById(radioId);
+
+        radioId = groupOrientacao.getCheckedRadioButtonId();
+        radioOrientacao = findViewById(radioId);
+
+        radioId = groupTipo.getCheckedRadioButtonId();
+        radioTipo = findViewById(radioId);
+
+        radioId = groupTrafego.getCheckedRadioButtonId();
+        radioTrafegon = findViewById(radioId);
+
+    }
+
+   //INICIANDO OS COMPONENTES PRINCIPAIS ... VIEW, TEXT, GROUP
     private void IniciaComponent(){
         groupCordenada = findViewById(R.id.radio_cordenadas);
         groupVelocidade = findViewById(R.id.radio_Velocidade);
@@ -81,6 +123,7 @@ public class Configuracoes extends AppCompatActivity {
         voltaHome = (TextView) findViewById(R.id.voltar);
     }
 
+    // METODOS PARA CHECAR BOTOES E MOSTRAR QUANDO  ESCOLHER
     public void checkButton1(View v){
         int radioId1 = groupCordenada.getCheckedRadioButtonId();
         radioCordenadas = findViewById(radioId1);
@@ -110,4 +153,36 @@ public class Configuracoes extends AppCompatActivity {
         radioTrafegon = findViewById(radioId5);
         Toast.makeText(this, "Voce seleciocou : " + radioTrafegon.getText(), Toast.LENGTH_SHORT).show();
     }
+    //FIM METODO CHECA BOTOES
+
+    // METODO PARA SALVAR MINHA LISTA COMO UM JSON
+    public void saveArrayList(String[] l){
+        //CRIANDO O PREFERE SHERED
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFES, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        //INSTANCIA O "JSON"
+        Gson gson = new Gson();
+
+        //SERIALIZA OS VALORES E ARMAZENA NAS DEVIDAS CHAVES ( KEY, VALUE )
+        editor.putString("cordenadas", gson.toJson(l[0]));
+        editor.putString("velocidade", gson.toJson(l[1]));
+        editor.putString("orientacao ", gson.toJson(l[2]));
+        editor.putString("trafegon", gson.toJson(l[3]));
+        editor.putString("tipo", gson.toJson(l[4]));
+
+        editor.apply();
+    }
+
+
+
+//    public ArrayList<String> getArrayList(String key){
+//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+//        Gson gson = new Gson();
+//        String json = prefs.getString(key, null);
+//        Type type = new TypeToken<ArrayList<String>>() {}.getType();
+//        return gson.fromJson(json, type);
+//        Toast.makeText(getApplicationContext(), name, Toast.LENGTH_SHORT).show();
+
+//    }
 }
