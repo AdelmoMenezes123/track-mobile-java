@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".Historico">
+
+    <RelativeLayout style="@style/relative" android:layout_marginTop="50dp">
+        <!--ICON-->
+        <ImageView
+            android:id="@+id/icon_voltar"
+            style="@style/iconVoltar"
+            android:src="@drawable/voltar" />
+        <!--TEXTO VOLTA-->
+        <TextView
+            android:id="@+id/voltar"
+            style="@style/textVoltar"
+            android:text="Voltar"
+            android:textColor="@color/green"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+    <!--BUTAO CREDITOS-->
+    <Button
+        style="@style/button_secondary"
+        android:background="@drawable/radius"
+        android:layout_marginBottom="50dp"
+        android:text="HISTÓRICO"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/tv_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark"
+            android:padding="16dp"
+            android:textSize="20sp" />
+
+    </ScrollView>
+
+</LinearLayout>

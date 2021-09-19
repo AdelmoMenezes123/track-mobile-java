@@ -73,7 +73,7 @@ public class Configuracoes extends AppCompatActivity {
                         radioOrientacao.getText().toString(),
                         radioTrafegon.getText().toString(),
                         radioTipo.getText().toString()
-                };SQ
+                };
 
                 //PERCORRENDO A LISTA E MOSTRANDO OS VALORES NA TELA USANDO TOAST
                 for (String itens: lista) {
@@ -173,16 +173,4 @@ public class Configuracoes extends AppCompatActivity {
 
         editor.apply();
     }
-
-
-
-//    public ArrayList<String> getArrayList(String key){
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
-//        Gson gson = new Gson();
-//        String json = prefs.getString(key, null);
-//        Type type = new TypeToken<ArrayList<String>>() {}.getType();
-//        return gson.fromJson(json, type);
-//        Toast.makeText(getApplicationContext(), name, Toast.LENGTH_SHORT).show();
-
-//    }
 }

@@ -9,8 +9,7 @@ import android.widget.Button;
 
 public class Home extends AppCompatActivity {
 
-    View entrarConfig;
-    View entrarCredito;
+    View entrarConfig, entrarHistorico, entrarCredito;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +32,19 @@ public class Home extends AppCompatActivity {
                 startActivity(in);
             }
         });
+
+        entrarHistorico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(Home.this, Historico.class);
+                startActivity(in);
+            }
+        });
+
     }
     private void IniciaComponent(){
         entrarConfig = (View) findViewById(R.id.configuracoes);
         entrarCredito = (View) findViewById(R.id.creditos);
+        entrarHistorico = (View) findViewById(R.id.historico);
     }
 }
