@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import com.google.gson.JsonObject;
 import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Configuracoes extends AppCompatActivity {
 
@@ -59,6 +61,7 @@ public class Configuracoes extends AppCompatActivity {
               }
         });
 
+//        getListaShared();
 
         buttonEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -171,6 +174,27 @@ public class Configuracoes extends AppCompatActivity {
         editor.putString("trafegon", gson.toJson(l[3]));
         editor.putString("tipo", gson.toJson(l[4]));
 
+        // id dos group-radio
+        editor.putInt("cordenadas_id", groupCordenada.getCheckedRadioButtonId());
+        editor.putInt("velocidade_id", groupVelocidade.getCheckedRadioButtonId());
+        editor.putInt("orientacao_id", groupOrientacao.getCheckedRadioButtonId());
+        editor.putInt("trafegon_id", groupTrafego.getCheckedRadioButtonId());
+        editor.putInt("tipo_id", groupTipo.getCheckedRadioButtonId());
+
         editor.apply();
+    }
+
+    public void getListaShared(){
+        // INICIANDO MEU SHERED PREFERECES
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFES, MODE_PRIVATE);
+
+        int a  = sharedPreferences.getInt("cordenadas_id", 0);
+
+//        int cordenada = sharedPreferences.getString("cordenadas", defaultValue);
+//        int velocidade = sharedPreferences.getString("velocidade", "unknown");
+//        int orientacao = sharedPreferences.getString("orientacao ", "unknown");
+//        int trafego = sharedPreferences.getString("trafegon", "unknown");
+//        int tipo =sharedPreferences.getString("tipo", "unknown");
+
     }
 }
