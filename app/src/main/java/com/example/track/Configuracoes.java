@@ -188,13 +188,17 @@ public class Configuracoes extends AppCompatActivity {
         // INICIANDO MEU SHERED PREFERECES
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFES, MODE_PRIVATE);
 
-        int a  = sharedPreferences.getInt("cordenadas_id", 0);
+        int cordenada = sharedPreferences.getInt("cordenadas_id", 0);
+        int velocidade = sharedPreferences.getInt("velocidade_id", 0);
+        int orientacao = sharedPreferences.getInt("orientacao_id", 0);
+        int trafego = sharedPreferences.getInt("trafegon_id", 0);
+        int tipo =sharedPreferences.getInt("tipo_id", 0);
 
-//        int cordenada = sharedPreferences.getString("cordenadas", defaultValue);
-//        int velocidade = sharedPreferences.getString("velocidade", "unknown");
-//        int orientacao = sharedPreferences.getString("orientacao ", "unknown");
-//        int trafego = sharedPreferences.getString("trafegon", "unknown");
-//        int tipo =sharedPreferences.getString("tipo", "unknown");
+        groupCordenada.check(cordenada);
+        groupVelocidade.check(velocidade);
+        groupOrientacao.check(orientacao);
+        groupTipo.check(tipo);
+        groupTrafego.check(trafego);
+        }
 
     }
-}
