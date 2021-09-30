@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class Home extends AppCompatActivity {
 
-    View entrarConfig, entrarHistorico, entrarCredito;
+    View entrarConfig, entrarHistorico, entrarCredito, entrarNavegacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +41,19 @@ public class Home extends AppCompatActivity {
             }
         });
 
+        entrarNavegacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(Home.this, MapsActivity.class);
+                startActivity(in);
+            }
+        });
+
     }
     private void IniciaComponent(){
         entrarConfig = (View) findViewById(R.id.configuracoes);
         entrarCredito = (View) findViewById(R.id.creditos);
         entrarHistorico = (View) findViewById(R.id.historico);
+        entrarNavegacao = (View) findViewById(R.id.navegacao);
     }
 }

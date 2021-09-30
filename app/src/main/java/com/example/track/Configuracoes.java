@@ -61,7 +61,7 @@ public class Configuracoes extends AppCompatActivity {
               }
         });
 
-//        getListaShared();
+        getListaShared();
 
         buttonEnviar.setOnClickListener(new View.OnClickListener() {
             @Override

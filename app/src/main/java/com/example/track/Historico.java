@@ -60,7 +60,6 @@ public class Historico extends AppCompatActivity {
 
         //ADD OS DADOS EM UM ARRAY
         String[] list = {
-                "-------------------- DATA --------------------",
                 ""+data+"",
                 "Cordenadas: "+cordenada,
                 "Velocidade: "+velocidade,
