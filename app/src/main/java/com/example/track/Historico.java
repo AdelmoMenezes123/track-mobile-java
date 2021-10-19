@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class Historico extends AppCompatActivity {
 
-    TextView mList, volta;
+    TextView mList;
     public static final String SHARED_PREFES = "sharedPrefes";
 
     @Override
@@ -24,13 +24,6 @@ public class Historico extends AppCompatActivity {
         setContentView(R.layout.activity_historico);
 
         IniciaComponent();
-        volta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in = new Intent(Historico.this, Home.class);
-                startActivity(in);
-            }
-        });
 
         //METODO QUE LISTA OS DADOS DO SHARED PREFES E ADD NA TELA
         getListaShared();
@@ -38,7 +31,6 @@ public class Historico extends AppCompatActivity {
     }
 
     private void IniciaComponent() {
-        volta = (TextView) findViewById(R.id.voltar);
         mList=(TextView)findViewById(R.id.tv_list);
     }
 

@@ -10,20 +10,13 @@ import android.widget.TextView;
 
 public class Creditos extends AppCompatActivity {
 
-    TextView volta, versaoSDK;
+    TextView versaoSDK;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_creditos);
 
         IniciaComponent();
-        volta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in = new Intent(Creditos.this, Home.class);
-                startActivity(in);
-            }
-        });
 
         String release = Build.VERSION.RELEASE;
         int sdkVersion = Build.VERSION.SDK_INT;
@@ -31,7 +24,6 @@ public class Creditos extends AppCompatActivity {
         versaoSDK.setText("Versão do Android: " + release +"   "+ "SDK: "+ sdkVersion);
     }
     private void IniciaComponent(){
-        volta = (TextView) findViewById(R.id.voltar);
         versaoSDK = (TextView) findViewById(R.id.versaoSDK);
     }
 }

@@ -52,12 +52,6 @@
             android:textSize="18dp"
             android:textStyle="bold" />
 
-        <!-- BUTTON INITIAL-->
-        <Button style="@style/button_secondary"
-            android:text="MENU PRINCIPAL"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/radius"/>
-
         <!-- BUTOES DE CONFIG E NAVEGACAO-->
         <RelativeLayout
             android:layout_marginTop="50dp"

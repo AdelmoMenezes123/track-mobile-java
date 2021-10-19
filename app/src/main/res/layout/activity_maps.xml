@@ -9,30 +9,6 @@
     android:layout_height="match_parent"
     tools:context=".MapsActivity">
 
-    <RelativeLayout style="@style/relative" android:layout_marginTop="50dp">
-        <!--ICON-->
-        <ImageView
-            android:id="@+id/icon_voltar"
-            style="@style/iconVoltar"
-            android:src="@drawable/voltar" />
-        <!--TEXTO VOLTA-->
-        <TextView
-            android:id="@+id/voltar"
-            style="@style/textVoltar"
-            android:text="Voltar"
-            android:textColor="@color/green"
-           />
-    </RelativeLayout>
-
-    <!--BUTAO CREDITOS-->
-    <Button
-        android:id="@+id/navegacao"
-        style="@style/button_secondary"
-        android:background="@drawable/radius"
-        android:layout_marginBottom="50dp"
-        android:text="NAVEGAÇÃO"
-        />
-
     <RelativeLayout style="@style/relative" android:layout_marginBottom="10dp">
         <TextView
             android:id="@+id/longLat"

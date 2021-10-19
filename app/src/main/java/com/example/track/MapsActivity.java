@@ -4,11 +4,13 @@ import com.example.track.databinding.ActivityMapsBinding;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +23,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -28,21 +31,26 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Date;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    public static final String SHARED_PREFES = "sharedPrefes";
+    private String cordenada, velocidade, orientacao, trafego, tipo;
 
+    //    private static final REQUEST_LAST_LOCATION = 1;
+    //    private static final REQUEST_LOCATION_UPDATE = 2;
     private double longitude;
     private double latitude;
-    TextView volta, longLat;
-    Button navegacao;
+    TextView longLat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,37 +61,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(view);
 
         IniciaComponent();
-
-        volta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in = new Intent(MapsActivity.this, Home.class);
-                startActivity(in);
-            }
-        });
-
         pedirPermissoes();
-        navegacao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pedirPermissoes();
-            }
-        });
+
+
+        // Obtenha um identificador para o fragmento e registre o retorno de chamada.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     private void IniciaComponent(){
-        volta = (TextView) findViewById(R.id.voltar);
         longLat = (TextView) findViewById(R.id.longLat);
-        navegacao = (Button) findViewById(R.id.navegacao);
     }
 
     private void pedirPermissoes() {
@@ -107,6 +97,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     configurarServico();
                 } else {
                     Toast.makeText(this, "Não vai funcionar!!!", Toast.LENGTH_LONG).show();
+                    finish();
                 }
                 return;
             }
@@ -142,60 +133,108 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if (locationManager != null) {
                 List<String> providers = locationManager.getAllProviders();
                 for (String provider : providers) {
-                    locationManager.requestLocationUpdates(provider, 2l, 1f, locationListener);
+                    locationManager.requestLocationUpdates(provider, 1l, 1f, locationListener);
                 }
-            }
-            locationManager.removeUpdates(this);
+//                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1l, 1f, locationListener);
 
-//            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2l, 1f, locationListener);
+            }
+//            locationManager.removeUpdates(this);
+
         }catch(SecurityException ex){
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
-    public void atualizar(@NonNull Location location) {
-         longitude = location.getLongitude();
-         latitude = location.getLatitude();
+    public void atualizar(Location location) {
 
-        Log.d("long: "," "+longitude);
-        Log.d("lat: "," "+latitude);
+        if(location!=null)
+        {
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+            mMap.clear();
+            mMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude))
+                    .title("Minha Localizacao").icon(BitmapDescriptorFactory
+                            .defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 15F));
 
-        if(longitude != 0.0  && latitude != 0.0) {
-            // Get a handle to the fragment and register the callback.
-            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                    .findFragmentById(R.id.map);
-            mapFragment.getMapAsync(this);
+            Log.d("long: ", " " + longitude);
+            Log.d("lat: ", " " + latitude);
+            Log.d("tipo: ", " " + tipo);
+            Log.d("trafego: ", " " + trafego);
+
+            longLat.setText("LONGITUDE: " + longitude +
+                    "\n\n" + "LATITUDE: " + latitude +
+                    "\n\n" + "velocidade(m/s) " + location.getSpeed() +
+                    "\n\n" + "Rumo(graus) " + location.getBearing() +
+                    "\n\n" + "Acuracia(metros) " + location.getAccuracy());
+
+        }
+        else
+        {
+            Toast.makeText(this, "Incapaz de buscar a localização atual", Toast.LENGTH_SHORT).show();
         }
 
-        longLat.setText("LONGITUDE: " + longitude + "\n\n" + "LATITUDE: " + latitude);
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        // Set the map coordinates to Kyoto Japan.
-        LatLng local = new LatLng(latitude, longitude);
-        // Set the map type to Hybrid.
-        googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID); // aqui e o tipo de mapa
-        // Add a marker on the map coordinates.
-        googleMap.addMarker(new MarkerOptions()
-                .position(local)
-                .title("Em algum Lugar do mundo !"));
-        // Move the camera to the map coordinates and zoom in closer.
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(local));
-        googleMap.moveCamera(CameraUpdateFactory.zoomTo(15));
-        // Display traffic.
-        googleMap.setTrafficEnabled(true);
+        mMap = googleMap;
+        setUpMap();
+    }
 
-        GoogleMapOptions options = new GoogleMapOptions();
-        options.mapType(GoogleMap.MAP_TYPE_SATELLITE)
-                .compassEnabled(false)
-                .rotateGesturesEnabled(false)
-                .tiltGesturesEnabled(false);
+    public void setUpMap(){
+        getShared();
+
+        if(tipo.equals("Vetorial")){
+            mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        }else{
+            mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        }
+
+
+        if(trafego.equals("Ligado")){
+            mMap.setTrafficEnabled(true);
+            mMap.isTrafficEnabled();
+        }else{
+            mMap.setTrafficEnabled(false);
+            mMap.isTrafficEnabled();
+        }
+
+        mMap.setMyLocationEnabled(true);
     }
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
     }
 
+    @Override
+    public void onPause() {
+        if (mMap != null) {
+            mMap.setMyLocationEnabled(false);
+            mMap.setTrafficEnabled(false);
+            mMap.getUiSettings().setCompassEnabled(true);
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    public void getShared(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFES, MODE_PRIVATE);
+
+        cordenada = sharedPreferences.getString("cordenadas", "unknown");
+        velocidade = sharedPreferences.getString("velocidade", "unknown");
+        orientacao = sharedPreferences.getString("orientacao ", "unknown");
+        trafego = sharedPreferences.getString("trafegon", "unknown");
+        tipo = sharedPreferences.getString("tipo", "unknown");
+    }
 
 }

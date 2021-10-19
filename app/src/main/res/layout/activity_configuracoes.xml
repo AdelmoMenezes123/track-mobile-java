@@ -13,24 +13,6 @@
             android:background="@color/white"
             tools:context=".Configuracoes">
 
-                <RelativeLayout style="@style/relative" android:layout_marginTop="50dp">
-                        <!--ICON-->
-                        <ImageView style="@style/iconVoltar"
-                            android:id="@+id/icon_voltar"
-                            android:src="@drawable/voltar" />
-
-                        <!--TEXTO-->
-                        <TextView style="@style/textVoltar"
-                            android:id="@+id/voltar"
-                            android:text="Voltar"
-                            android:textColor="@color/green" />
-                </RelativeLayout>
-
-                <!--BUTAO PRINCIPAL-->
-                <Button style="@style/button_secondary"
-                    android:background="@drawable/radius"
-                    android:text="CONFIGURAÇÕES" />
-
                 <!--AREA DE COORDENADAS GEOGRAFICA-->
                 <RelativeLayout
                     android:layout_width="match_parent"

@@ -14,27 +14,6 @@
         android:padding="20dp"
         tools:context=".Creditos">
 
-        <RelativeLayout style="@style/relative" android:layout_marginTop="50dp">
-            <!--ICON-->
-            <ImageView
-                android:id="@+id/icon_voltar"
-                style="@style/iconVoltar"
-                android:src="@drawable/voltar" />
-            <!--TEXTO VOLTA-->
-            <TextView
-                android:id="@+id/voltar"
-                style="@style/textVoltar"
-                android:text="Voltar"
-                android:textColor="@color/green"
-                tools:ignore="HardcodedText" />
-        </RelativeLayout>
-        <!--BUTAO CREDITOS-->
-        <Button
-            style="@style/button_secondary"
-            android:background="@drawable/radius"
-            android:text="CRÉDITOS"
-            />
-
         <!-- TEXTO PRINCIPAL-->
         <TextView
             android:layout_marginTop="30dp"

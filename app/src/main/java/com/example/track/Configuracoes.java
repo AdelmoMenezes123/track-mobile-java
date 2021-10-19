@@ -40,7 +40,6 @@ public class Configuracoes extends AppCompatActivity {
 
     // BUTOES LINKS
     View buttonEnviar;
-    TextView voltaHome;
 
     public static final String SHARED_PREFES = "sharedPrefes";
 
@@ -51,15 +50,6 @@ public class Configuracoes extends AppCompatActivity {
 
         // INICIANDO OS COMPONENTES
         IniciaComponent();
-
-        //CLICK DO LINK VOLTAR A TELA ANTERIIOR
-        voltaHome.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                  Intent in = new Intent(Configuracoes.this, Home.class);
-                  startActivity(in);
-              }
-        });
 
         getListaShared();
 
@@ -77,11 +67,6 @@ public class Configuracoes extends AppCompatActivity {
                         radioTrafegon.getText().toString(),
                         radioTipo.getText().toString()
                 };
-
-                //PERCORRENDO A LISTA E MOSTRANDO OS VALORES NA TELA USANDO TOAST
-                for (String itens: lista) {
-                    Toast.makeText(getApplicationContext(), itens, Toast.LENGTH_SHORT).show();
-                }
 
                 //SALVANDOS OS DADOS
                 saveArrayList(lista);
@@ -123,7 +108,6 @@ public class Configuracoes extends AppCompatActivity {
         groupTrafego = findViewById(R.id.radio_trafego);
 
         buttonEnviar = (View)findViewById(R.id.enviar);
-        voltaHome = (TextView) findViewById(R.id.voltar);
     }
 
     // METODOS PARA CHECAR BOTOES E MOSTRAR QUANDO  ESCOLHER
@@ -164,15 +148,12 @@ public class Configuracoes extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFES, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        //INSTANCIA O "JSON"
-        Gson gson = new Gson();
-
         //SERIALIZA OS VALORES E ARMAZENA NAS DEVIDAS CHAVES ( KEY, VALUE )
-        editor.putString("cordenadas", gson.toJson(l[0]));
-        editor.putString("velocidade", gson.toJson(l[1]));
-        editor.putString("orientacao ", gson.toJson(l[2]));
-        editor.putString("trafegon", gson.toJson(l[3]));
-        editor.putString("tipo", gson.toJson(l[4]));
+        editor.putString("cordenadas", l[0]);
+        editor.putString("velocidade", l[1]);
+        editor.putString("orientacao ", l[2]);
+        editor.putString("trafegon", l[3]);
+        editor.putString("tipo", l[4]);
 
         // id dos group-radio
         editor.putInt("cordenadas_id", groupCordenada.getCheckedRadioButtonId());
