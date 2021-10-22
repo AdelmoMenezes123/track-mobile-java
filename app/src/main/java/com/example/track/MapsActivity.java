@@ -10,6 +10,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
@@ -42,6 +43,9 @@ import java.util.List;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
 
     private GoogleMap mMap;
+    LocationManager locationManager;
+    LocationListener locationListener;
+
     private ActivityMapsBinding binding;
     public static final String SHARED_PREFES = "sharedPrefes";
     private String cordenada, velocidade, orientacao, trafego, tipo;
@@ -92,7 +96,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
-            case 1: {
+            case 10: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     configurarServico();
                 } else {
@@ -106,9 +110,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void configurarServico(){
         try {
-            LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
+            //Ultima Localizacaao
+//            Location loc =  locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER, 500, 5 , locationListener);
 
-            LocationListener locationListener = new LocationListener() {
+            locationListener = new LocationListener() {
                 public void onLocationChanged(Location location) {
                     if(location.getAccuracy() < 25.0){
                         atualizar(location);
@@ -116,32 +122,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
 
                 public void onStatusChanged(String provider, int status, Bundle extras) {
-                    Log.v("onStatusChanged: ", "Status changed: " + provider);
-                    Log.v("onStatusChanged: ", "Status changed: " + status);
-                    Log.v("onStatusChanged: ", "Status changed: " + extras);
-
+                    Toast.makeText(MapsActivity.this, "O status do Provider 1 ", Toast.LENGTH_SHORT).show();
                 }
 
                 public void onProviderEnabled(String provider) {
-                    Log.v("onProviderEnabled: ", "Status changed: " + provider);
+                    Toast.makeText(MapsActivity.this, "Provider Habilitado", Toast.LENGTH_SHORT).show();
                 }
 
                 public void onProviderDisabled(String provider) {
-                    Log.v("onProviderDisabled: ", "Status changed: " + provider);
+                    Toast.makeText(MapsActivity.this, "Provider Desabilitado", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    startActivity(intent);
                 }
             };
             if (locationManager != null) {
                 List<String> providers = locationManager.getAllProviders();
                 for (String provider : providers) {
-                    locationManager.requestLocationUpdates(provider, 1l, 1f, locationListener);
+                    locationManager.requestLocationUpdates(provider, 5000, 0, locationListener);
+                    // Location loc =  locationManager.getLastKnownLocation(provider);
                 }
-//                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1l, 1f, locationListener);
-
             }
-//            locationManager.removeUpdates(this);
 
         }catch(SecurityException ex){
-            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
+
+            Toast.makeText(this,"ERROR: "+ ex.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -149,24 +153,39 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         if(location!=null)
         {
+            getShared();
+
             latitude = location.getLatitude();
             longitude = location.getLongitude();
-            mMap.clear();
             mMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude))
                     .title("Minha Localizacao").icon(BitmapDescriptorFactory
                             .defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 15F));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 13));
 
             Log.d("long: ", " " + longitude);
             Log.d("lat: ", " " + latitude);
             Log.d("tipo: ", " " + tipo);
             Log.d("trafego: ", " " + trafego);
 
-            longLat.setText("LONGITUDE: " + longitude +
-                    "\n\n" + "LATITUDE: " + latitude +
-                    "\n\n" + "velocidade(m/s) " + location.getSpeed() +
-                    "\n\n" + "Rumo(graus) " + location.getBearing() +
-                    "\n\n" + "Acuracia(metros) " + location.getAccuracy());
+            switch (cordenada){
+                case "Grau-Minuto decimal":
+                    break;
+                case "Grau-Minuto-Segundo decimal":
+                    String[] latLong = this.ddToDms(latitude, longitude);
+                    longLat.setText("LATITUDE: " + latLong[0] +
+                            "\n\n" + "LONGITUDE: " + latLong[1] +
+                            "\n\n" + "velocidade(m/s) " + location.getSpeed() +
+                            "\n\n" + "Rumo(graus) " + location.getBearing() +
+                            "\n\n" + "Acuracia(metros) " + location.getAccuracy());
+                    break;
+                case "Grau decimal":
+                    longLat.setText("LATITUDE: " + latitude +
+                            "\n\n" + "LONGITUDE: " + longitude +
+                            "\n\n" + "velocidade(m/s) " + location.getSpeed() +
+                            "\n\n" + "Rumo(graus) " + location.getBearing() +
+                            "\n\n" + "Acuracia(metros) " + location.getAccuracy());
+                    break;
+            }
 
         }
         else
@@ -183,24 +202,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void setUpMap(){
-        getShared();
+        try {
+            getShared();
+            if (tipo.equals("Vetorial")) {
+                mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            } else {
+                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+            }
 
-        if(tipo.equals("Vetorial")){
-            mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        }else{
-            mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+            if (trafego.equals("Ligado")) {
+                mMap.setTrafficEnabled(true);
+            } else {
+                mMap.setTrafficEnabled(false);
+            }
+
+            mMap.setMyLocationEnabled(true);
+        }catch (SecurityException e){
+            Toast.makeText(this, "ERROR: "+ e.getMessage(), Toast.LENGTH_LONG).show();
         }
-
-
-        if(trafego.equals("Ligado")){
-            mMap.setTrafficEnabled(true);
-            mMap.isTrafficEnabled();
-        }else{
-            mMap.setTrafficEnabled(false);
-            mMap.isTrafficEnabled();
-        }
-
-        mMap.setMyLocationEnabled(true);
     }
 
     @Override
@@ -209,12 +228,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onPause() {
-        if (mMap != null) {
-            mMap.setMyLocationEnabled(false);
-            mMap.setTrafficEnabled(false);
-            mMap.getUiSettings().setCompassEnabled(true);
+        try {
+            if (mMap != null) {
+                super.onPause();
+                mMap.setMyLocationEnabled(false);
+                mMap.setTrafficEnabled(false);
+                mMap.getUiSettings().setCompassEnabled(true);
+                locationManager.removeUpdates(this);
+                mMap.clear();
+            }
+        }catch (SecurityException e){
+            Toast.makeText(this, "ERROR: " +e.getMessage(), Toast.LENGTH_LONG).show();
         }
-        super.onPause();
     }
 
     @Override
@@ -235,6 +260,46 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         orientacao = sharedPreferences.getString("orientacao ", "unknown");
         trafego = sharedPreferences.getString("trafegon", "unknown");
         tipo = sharedPreferences.getString("tipo", "unknown");
+    }
+
+    public String grauDecimal(){ return "";}
+
+    public String GrauMinutoDecimal(){return "";}
+
+    public String GrauMinutoSegundoDecimal(){return "";}
+
+
+    // ARUMANDO OS DADOS GMSD
+    public String[] ddToDms(Double lat, Double lng) {
+        String latResult, lngResult;
+        String dmsResult;
+
+        latResult = (lat >= 0)? 'N' + " " + getDms(lat) : 'S'+ " " + getDms(lat);
+
+        lngResult = (lng >= 0)? 'L' + " " + getDms(lng) : 'O' + " " + getDms(lng);
+
+        String[] array = {latResult, lngResult};
+
+        return array;
+    }
+
+    // CALCULO PARA CONVERTER DECIMAL EM GRAU MINUTO SEGUNDO DECIMAL
+    public String getDms(Double val) {
+        String  result;
+        double valDeg, valMin, valSec;
+
+        val = Math.abs(val);
+        valDeg = Math.floor(val);
+
+        result = (int)valDeg + "º ";
+
+        valMin = Math.floor((val - valDeg) * 60);
+        result += (int)valMin + "' ";
+
+        valSec = Math.round((val - valDeg - valMin / 60) * 3600 * 1000) / 1000;
+        result += (int)valSec + "\"";
+
+        return result;
     }
 
 }
