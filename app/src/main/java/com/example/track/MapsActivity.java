@@ -34,6 +34,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -54,7 +56,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     //    private static final REQUEST_LOCATION_UPDATE = 2;
     private double longitude;
     private double latitude;
+    private Circle mCircle;
     TextView longLat;
+    TextView campVelocidade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +82,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void IniciaComponent(){
         longLat = (TextView) findViewById(R.id.longLat);
+        campVelocidade = (TextView) findViewById(R.id.velocidade);
     }
 
     private void pedirPermissoes() {
@@ -116,9 +121,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             locationListener = new LocationListener() {
                 public void onLocationChanged(Location location) {
-                    if(location.getAccuracy() < 25.0){
                         atualizar(location);
-                    }
                 }
 
                 public void onStatusChanged(String provider, int status, Bundle extras) {
@@ -157,33 +160,47 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             latitude = location.getLatitude();
             longitude = location.getLongitude();
-            mMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude))
-                    .title("Minha Localizacao").icon(BitmapDescriptorFactory
-                            .defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 13));
+            LatLng latLng = new LatLng(latitude, longitude);
 
-            Log.d("long: ", " " + longitude);
-            Log.d("lat: ", " " + latitude);
-            Log.d("tipo: ", " " + tipo);
-            Log.d("trafego: ", " " + trafego);
+            MarkerOptions options = new MarkerOptions()
+                    .position(latLng)
+                    .title("Minha Localizacao");
+            mMap.addMarker(options).setAnchor(0.5f, 0.5f);
+
+            mMap.getUiSettings().setZoomControlsEnabled(false);
+            mMap.getUiSettings().setScrollGesturesEnabled(false);
+
+//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
+
+            mCircle = mMap.addCircle(new CircleOptions()
+                    .center(latLng)
+                    .radius(25)
+                    .strokeColor(R.color.red)
+                    .fillColor(0x1D0000F)
+                    .strokeWidth(location.getAccuracy()));
 
             switch (cordenada){
                 case "Grau-Minuto decimal":
+                    String[] gmd = this.ddToDms(latitude, longitude, false);
+                    longLat.setText("LATITUDE: " + gmd[0] + "\n\n" + "LONGITUDE: " + gmd[1] + "\n");
                     break;
                 case "Grau-Minuto-Segundo decimal":
-                    String[] latLong = this.ddToDms(latitude, longitude);
-                    longLat.setText("LATITUDE: " + latLong[0] +
-                            "\n\n" + "LONGITUDE: " + latLong[1] +
-                            "\n\n" + "velocidade(m/s) " + location.getSpeed() +
-                            "\n\n" + "Rumo(graus) " + location.getBearing() +
-                            "\n\n" + "Acuracia(metros) " + location.getAccuracy());
+                    String[] gmsd =  this.ddToDms(latitude, longitude, true);
+                    longLat.setText("LATITUDE: " + gmsd[0] + "\n\n" + "LONGITUDE: " + gmsd[1] + "\n" );
                     break;
                 case "Grau decimal":
-                    longLat.setText("LATITUDE: " + latitude +
-                            "\n\n" + "LONGITUDE: " + longitude +
-                            "\n\n" + "velocidade(m/s) " + location.getSpeed() +
-                            "\n\n" + "Rumo(graus) " + location.getBearing() +
-                            "\n\n" + "Acuracia(metros) " + location.getAccuracy());
+                    longLat.setText("LATITUDE: " + latitude + "\n\n" + "LONGITUDE: " + longitude + "\n" );
+                    break;
+                default:
+                    longLat.setText("Falhou");
+            }
+
+            switch (velocidade){
+                case "Km/h (quilometro por hora)":
+                    campVelocidade.setText("velocidade(Km/h) " + this.kmhora(location.getSpeed()) + "\n");
+                    break;
+                case "Mph (milhas por hora)":
+                    campVelocidade.setText("velocidade(Mph) " + this.milhahora(location.getSpeed()) +  "\n");
                     break;
             }
 
@@ -204,6 +221,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void setUpMap(){
         try {
             getShared();
+
             if (tipo.equals("Vetorial")) {
                 mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
             } else {
@@ -216,7 +234,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.setTrafficEnabled(false);
             }
 
+            if(orientacao.equals("North Up (Norte do Mapa)")){mMap.getUiSettings().setRotateGesturesEnabled(false);}
+            if(orientacao.equals("Course Up (Topo do Mapa)")){mMap.getUiSettings().setRotateGesturesEnabled(false);}
+            if(orientacao.equals("Nenhuma")){}
+
             mMap.setMyLocationEnabled(true);
+
         }catch (SecurityException e){
             Toast.makeText(this, "ERROR: "+ e.getMessage(), Toast.LENGTH_LONG).show();
         }
@@ -226,21 +249,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onLocationChanged(@NonNull Location location) {
     }
 
-    @Override
-    public void onPause() {
-        try {
-            if (mMap != null) {
-                super.onPause();
-                mMap.setMyLocationEnabled(false);
-                mMap.setTrafficEnabled(false);
-                mMap.getUiSettings().setCompassEnabled(true);
-                locationManager.removeUpdates(this);
-                mMap.clear();
-            }
-        }catch (SecurityException e){
-            Toast.makeText(this, "ERROR: " +e.getMessage(), Toast.LENGTH_LONG).show();
-        }
-    }
+
 
     @Override
     public void onLowMemory() {
@@ -262,21 +271,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         tipo = sharedPreferences.getString("tipo", "unknown");
     }
 
-    public String grauDecimal(){ return "";}
-
-    public String GrauMinutoDecimal(){return "";}
-
-    public String GrauMinutoSegundoDecimal(){return "";}
-
 
     // ARUMANDO OS DADOS GMSD
-    public String[] ddToDms(Double lat, Double lng) {
+    public String[] ddToDms(Double lat, Double lng, Boolean flag) {
         String latResult, lngResult;
         String dmsResult;
 
-        latResult = (lat >= 0)? 'N' + " " + getDms(lat) : 'S'+ " " + getDms(lat);
+        latResult = (lat >= 0)? 'N' + " " + getDms(lat, flag) : 'S'+ " " + getDms(lat, flag);
 
-        lngResult = (lng >= 0)? 'L' + " " + getDms(lng) : 'O' + " " + getDms(lng);
+        lngResult = (lng >= 0)? 'L' + " " + getDms(lng, flag) : 'O' + " " + getDms(lng, flag);
 
         String[] array = {latResult, lngResult};
 
@@ -284,7 +287,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     // CALCULO PARA CONVERTER DECIMAL EM GRAU MINUTO SEGUNDO DECIMAL
-    public String getDms(Double val) {
+    public String getDms(Double val, Boolean flag) {
         String  result;
         double valDeg, valMin, valSec;
 
@@ -296,10 +299,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         valMin = Math.floor((val - valDeg) * 60);
         result += (int)valMin + "' ";
 
-        valSec = Math.round((val - valDeg - valMin / 60) * 3600 * 1000) / 1000;
-        result += (int)valSec + "\"";
-
+        if(flag == true) {
+            valSec = Math.round((val - valDeg - valMin / 60) * 3600 * 1000) / 1000;
+            result += (int) valSec + "\"";
+        }
         return result;
+    }
+
+    public Float kmhora(Float val){
+        float km = val*100;
+        return km;
+    }
+
+    public Float milhahora(Float val){
+        float mh = val*224;
+        return mh;
     }
 
 }

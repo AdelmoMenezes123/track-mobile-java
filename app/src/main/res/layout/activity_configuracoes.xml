@@ -81,7 +81,7 @@
                             android:onClick="checkButton2"
                             android:checked="true"
                             android:buttonTint="@color/green"
-                            android:text="Km/h (quilometro por hora) " />
+                            android:text="Km/h (quilometro por hora)" />
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_milha"
                             android:buttonTint="@color/green"
@@ -118,13 +118,13 @@
                             android:onClick="checkButton3"
                             android:checked="true"
                             android:buttonTint="@color/green"
-                            android:text="North Up (Norte do Mapa) " />
+                            android:text="North Up (Norte do Mapa)" />
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_topo"
                             android:buttonTint="@color/green"
                             android:onClick="checkButton3"
                             android:textColor="@color/dark"
-                            android:text="Course Up (Topo do Mapa) " />
+                            android:text="Course Up (Topo do Mapa)" />
                         <RadioButton style="@style/buttonRadius"
                             android:id="@+id/radio_nenhum"
                             android:buttonTint="@color/green"
