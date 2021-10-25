@@ -56,7 +56,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     //    private static final REQUEST_LOCATION_UPDATE = 2;
     private double longitude;
     private double latitude;
-    private Circle mCircle;
+    float speed;
+    private CircleOptions mCircle = new CircleOptions();
+    private MarkerOptions maker = new MarkerOptions();
     TextView longLat;
     TextView campVelocidade;
 
@@ -154,62 +156,76 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void atualizar(Location location) {
 
-        if(location!=null)
-        {
-            getShared();
+            if(location!=null)
+            {
 
-            latitude = location.getLatitude();
-            longitude = location.getLongitude();
-            LatLng latLng = new LatLng(latitude, longitude);
+                getShared();
 
-            MarkerOptions options = new MarkerOptions()
-                    .position(latLng)
-                    .title("Minha Localizacao");
-            mMap.addMarker(options).setAnchor(0.5f, 0.5f);
+                latitude = location.getLatitude();
+                longitude = location.getLongitude();
+                LatLng latLng = new LatLng(latitude, longitude);
 
-            mMap.getUiSettings().setZoomControlsEnabled(false);
-            mMap.getUiSettings().setScrollGesturesEnabled(false);
+                try {
 
-//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
+                    mMap.clear();
 
-            mCircle = mMap.addCircle(new CircleOptions()
-                    .center(latLng)
-                    .radius(25)
-                    .strokeColor(R.color.red)
-                    .fillColor(0x1D0000F)
-                    .strokeWidth(location.getAccuracy()));
+                    maker.position(latLng).title("Minha Localizacao");
+                    mMap.addMarker(maker).setAnchor(0.5f, 0.5f);
 
-            switch (cordenada){
-                case "Grau-Minuto decimal":
-                    String[] gmd = this.ddToDms(latitude, longitude, false);
-                    longLat.setText("LATITUDE: " + gmd[0] + "\n\n" + "LONGITUDE: " + gmd[1] + "\n");
-                    break;
-                case "Grau-Minuto-Segundo decimal":
-                    String[] gmsd =  this.ddToDms(latitude, longitude, true);
-                    longLat.setText("LATITUDE: " + gmsd[0] + "\n\n" + "LONGITUDE: " + gmsd[1] + "\n" );
-                    break;
-                case "Grau decimal":
-                    longLat.setText("LATITUDE: " + latitude + "\n\n" + "LONGITUDE: " + longitude + "\n" );
-                    break;
-                default:
-                    longLat.setText("Falhou");
+                    mCircle.center(latLng);
+                    mCircle.radius(25);
+                    mCircle.strokeColor(R.color.red);
+                    mCircle.fillColor(0x1D0000F);
+                    mCircle.strokeWidth(location.getAccuracy());
+
+                    mMap.addCircle(mCircle);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+                mMap.getUiSettings().setZoomControlsEnabled(false);
+                mMap.getUiSettings().setScrollGesturesEnabled(false);
+
+//                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+
+                String latSN = (int)latitude >= 0 ? "N" : "S";
+                String lonEW = (int)longitude >= 0 ? "E" : "W";
+                switch (cordenada) {
+                    case "Grau-Minuto decimal":
+                        String strLatitude = Location.convert(location.getLatitude(), Location.FORMAT_MINUTES).replace(":","° ").replace(",","\' ") + latSN;
+                        String strLongitude = Location.convert(location.getLongitude(), Location.FORMAT_MINUTES).replace(":","° ").replace(",","\' ") + lonEW;
+                        longLat.setText("LATITUDE: " + strLatitude + "\n\n" + "LONGITUDE: " + strLongitude + "\n");
+                        break;
+                    case "Grau-Minuto-Segundo decimal":
+                        String strLatitudeSeconds = Location.convert(location.getLatitude(), Location.FORMAT_SECONDS).replaceFirst(":","° ").replace(":","\' ").replace(",",".") + "\" " + latSN;
+                        String strLongitudeSeconds = Location.convert(location.getLongitude(), Location.FORMAT_SECONDS).replaceFirst(":","° ").replace(":","\' ").replace(",",".") + "\" " + lonEW;
+                        longLat.setText("LATITUDE: " + strLatitudeSeconds + "\n\n" + "LONGITUDE: " + strLongitudeSeconds + "\n");
+                        break;
+                    case "Grau decimal":
+                        longLat.setText("LATITUDE: " + latitude + "\n\n" + "LONGITUDE: " + longitude + "\n");
+                        break;
+                    default:
+                        longLat.setText("Falhou");
+                }
+
+                switch (velocidade) {
+                    case "Km/h (quilometro por hora)":
+                        location.setSpeed(location.getSpeed()*3.6f);
+                        speed = location.getSpeed();
+                        campVelocidade.setText("velocidade(Km/h) " + speed + "\n");
+                        break;
+                    case "Mph (milhas por hora)":
+                        location.setSpeed(location.getSpeed()*2.23694f);
+                        speed = location.getSpeed();
+                        campVelocidade.setText("velocidade(Mph) " + speed + "\n");
+                        break;
+                }
+
+
             }
-
-            switch (velocidade){
-                case "Km/h (quilometro por hora)":
-                    campVelocidade.setText("velocidade(Km/h) " + this.kmhora(location.getSpeed()) + "\n");
-                    break;
-                case "Mph (milhas por hora)":
-                    campVelocidade.setText("velocidade(Mph) " + this.milhahora(location.getSpeed()) +  "\n");
-                    break;
+            else {
+                Toast.makeText(this, "Incapaz de buscar a localização atual", Toast.LENGTH_SHORT).show();
             }
-
-        }
-        else
-        {
-            Toast.makeText(this, "Incapaz de buscar a localização atual", Toast.LENGTH_SHORT).show();
-        }
-
     }
 
     @Override
@@ -272,48 +288,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-    // ARUMANDO OS DADOS GMSD
-    public String[] ddToDms(Double lat, Double lng, Boolean flag) {
-        String latResult, lngResult;
-        String dmsResult;
-
-        latResult = (lat >= 0)? 'N' + " " + getDms(lat, flag) : 'S'+ " " + getDms(lat, flag);
-
-        lngResult = (lng >= 0)? 'L' + " " + getDms(lng, flag) : 'O' + " " + getDms(lng, flag);
-
-        String[] array = {latResult, lngResult};
-
-        return array;
+    public static String getLatitudeAsDMS(Location location, int decimalPlace){
+        String strLatitude = Location.convert(location.getLatitude(), Location.FORMAT_SECONDS);
+        strLatitude = replaceDelimiters(strLatitude, decimalPlace);
+        strLatitude = strLatitude + " N";
+        return strLatitude;
     }
 
-    // CALCULO PARA CONVERTER DECIMAL EM GRAU MINUTO SEGUNDO DECIMAL
-    public String getDms(Double val, Boolean flag) {
-        String  result;
-        double valDeg, valMin, valSec;
+    public static String getLongitudeAsDMS(Location location, int decimalPlace){
+        String strLongitude = Location.convert(location.getLongitude(), Location.FORMAT_SECONDS);
+        strLongitude = replaceDelimiters(strLongitude, decimalPlace);
+        strLongitude = strLongitude + " W";
+        return strLongitude;
+    }
 
-        val = Math.abs(val);
-        valDeg = Math.floor(val);
-
-        result = (int)valDeg + "º ";
-
-        valMin = Math.floor((val - valDeg) * 60);
-        result += (int)valMin + "' ";
-
-        if(flag == true) {
-            valSec = Math.round((val - valDeg - valMin / 60) * 3600 * 1000) / 1000;
-            result += (int) valSec + "\"";
+    @NonNull
+    private static String replaceDelimiters(String str, int decimalPlace) {
+        str = str.replaceFirst(":", "°");
+        str = str.replaceFirst(":", "'");
+        int pointIndex = str.indexOf(".");
+        int endIndex = pointIndex + 1 + decimalPlace;
+        if(endIndex < str.length()) {
+            str = str.substring(0, endIndex);
         }
-        return result;
-    }
-
-    public Float kmhora(Float val){
-        float km = val*100;
-        return km;
-    }
-
-    public Float milhahora(Float val){
-        float mh = val*224;
-        return mh;
+        str = str + "\"";
+        return str;
     }
 
 }
