@@ -27,6 +27,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -128,7 +130,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             locationListener = new LocationListener() {
                 public void onLocationChanged(Location location) {
-                        atualizar(location);
+                    atualizar(location);
                 }
 
                 public void onStatusChanged(String provider, int status, Bundle extras) {
@@ -175,21 +177,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mCircle = new CircleOptions();
                 maker = new MarkerOptions();
 
-                  mMap.clear();
+//                mMap.clear();
                 maker.position(latLng);
                 maker.title("Minha Localizacao");
                 maker.icon(BitmapDescriptorFactory.fromResource(R.drawable.voltar));
                 maker.anchor(0.5f, 0.5f);
-                maker.flat(true);
+                maker.rotation(location.getBearing());
 
                 mCircle.center(latLng);
                 mCircle.radius(16);
                 mCircle.strokeColor(R.color.red);
                 mCircle.fillColor(0x1D0000F);
                 mCircle.strokeWidth(location.getAccuracy());
-
-                mMap.addMarker(maker).setAnchor(0.5f, 0.5f);
-                mMap.addCircle(mCircle);
 
                 mMap.getUiSettings().setScrollGesturesEnabled(false);
 
@@ -259,7 +258,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                          break;
                     case "Nenhuma":
                         mMap.getUiSettings().setRotateGesturesEnabled(true);
-                        mMap.getUiSettings().setScrollGesturesEnabled(false);
+                        mMap.getUiSettings().setScrollGesturesEnabled(true);
                         if(mMap.getCameraPosition().zoom<=6.5f){
                             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18.0f));
                         }
@@ -270,6 +269,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     default:
                         Toast.makeText(this,"Orientacao Falhou", Toast.LENGTH_LONG).show();
                 }
+
+                mMap.addMarker(maker).setAnchor(0.5f, 0.5f);
+                mMap.addCircle(mCircle);
             }
             else {
                 Toast.makeText(this, "Incapaz de buscar a localização atual", Toast.LENGTH_SHORT).show();

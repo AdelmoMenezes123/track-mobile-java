@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/drawable/ic_velocidade.xml" value="0.17203947368421052" />
         <entry key="app/src/main/res/drawable/radius.xml" value="0.27239583333333334" />
         <entry key="app/src/main/res/drawable/radius_config.xml" value="0.17203947368421052" />
+        <entry key="app/src/main/res/drawable/seta.xml" value="0.17203947368421052" />
         <entry key="app/src/main/res/layout/activity_apresentacao.xml" value="0.1921875" />
         <entry key="app/src/main/res/layout/activity_configuracoes.xml" value="0.1618421052631579" />
         <entry key="app/src/main/res/layout/activity_creditos.xml" value="0.11612021857923498" />
