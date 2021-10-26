@@ -27,6 +27,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
@@ -37,6 +38,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.Date;
@@ -44,9 +46,13 @@ import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
 
-    private GoogleMap mMap;
+    GoogleMap mMap;
     LocationManager locationManager;
     LocationListener locationListener;
+    CircleOptions mCircle;
+    MarkerOptions maker;
+    LatLng latLng;
+    CameraPosition cameraPosition;
 
     private ActivityMapsBinding binding;
     public static final String SHARED_PREFES = "sharedPrefes";
@@ -56,9 +62,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     //    private static final REQUEST_LOCATION_UPDATE = 2;
     private double longitude;
     private double latitude;
-    float speed;
-    private CircleOptions mCircle = new CircleOptions();
-    private MarkerOptions maker = new MarkerOptions();
+    private float speed;
+
     TextView longLat;
     TextView campVelocidade;
 
@@ -127,7 +132,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
 
                 public void onStatusChanged(String provider, int status, Bundle extras) {
-                    Toast.makeText(MapsActivity.this, "O status do Provider 1 ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MapsActivity.this, "O status do Provider", Toast.LENGTH_SHORT).show();
                 }
 
                 public void onProviderEnabled(String provider) {
@@ -136,16 +141,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 public void onProviderDisabled(String provider) {
                     Toast.makeText(MapsActivity.this, "Provider Desabilitado", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                    startActivity(intent);
+//                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+//                    startActivity(intent);
                 }
             };
             if (locationManager != null) {
                 List<String> providers = locationManager.getAllProviders();
                 for (String provider : providers) {
-                    locationManager.requestLocationUpdates(provider, 5000, 0, locationListener);
+                    locationManager.requestLocationUpdates(provider, 500, 1, locationListener);
                     // Location loc =  locationManager.getLastKnownLocation(provider);
                 }
+            }else{
+//                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION_UPDATE);
+//                lastLocation();
             }
 
         }catch(SecurityException ex){
@@ -163,30 +171,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 latitude = location.getLatitude();
                 longitude = location.getLongitude();
-                LatLng latLng = new LatLng(latitude, longitude);
+                latLng = new LatLng(latitude, longitude);
+                mCircle = new CircleOptions();
+                maker = new MarkerOptions();
 
-                try {
+                  mMap.clear();
+                maker.position(latLng);
+                maker.title("Minha Localizacao");
+                maker.icon(BitmapDescriptorFactory.fromResource(R.drawable.voltar));
+                maker.anchor(0.5f, 0.5f);
+                maker.flat(true);
 
-                    mMap.clear();
+                mCircle.center(latLng);
+                mCircle.radius(16);
+                mCircle.strokeColor(R.color.red);
+                mCircle.fillColor(0x1D0000F);
+                mCircle.strokeWidth(location.getAccuracy());
 
-                    maker.position(latLng).title("Minha Localizacao");
-                    mMap.addMarker(maker).setAnchor(0.5f, 0.5f);
+                mMap.addMarker(maker).setAnchor(0.5f, 0.5f);
+                mMap.addCircle(mCircle);
 
-                    mCircle.center(latLng);
-                    mCircle.radius(25);
-                    mCircle.strokeColor(R.color.red);
-                    mCircle.fillColor(0x1D0000F);
-                    mCircle.strokeWidth(location.getAccuracy());
-
-                    mMap.addCircle(mCircle);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-
-                mMap.getUiSettings().setZoomControlsEnabled(false);
                 mMap.getUiSettings().setScrollGesturesEnabled(false);
-
-//                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
                 String latSN = (int)latitude >= 0 ? "N" : "S";
                 String lonEW = (int)longitude >= 0 ? "E" : "W";
@@ -205,7 +210,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         longLat.setText("LATITUDE: " + latitude + "\n\n" + "LONGITUDE: " + longitude + "\n");
                         break;
                     default:
-                        longLat.setText("Falhou");
+                        Toast.makeText(this,"Cordenadas Falhou", Toast.LENGTH_LONG).show();
                 }
 
                 switch (velocidade) {
@@ -219,9 +224,52 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         speed = location.getSpeed();
                         campVelocidade.setText("velocidade(Mph) " + speed + "\n");
                         break;
+                    default:
+                        Toast.makeText(this,"Velocidade Falhou", Toast.LENGTH_LONG).show();
                 }
 
+                switch (orientacao) {
+                    case "North Up (Norte do Mapa)":
+                        mMap.getUiSettings().setRotateGesturesEnabled(false);
+                        if (mMap.getCameraPosition().zoom <= 6.5f) {
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18.5f));
+                        } else if (mMap.getCameraPosition().zoom > 6.5f) {
+                            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                        }
+                        break;
+                    case "Course Up (Topo do Mapa)":
+                        mMap.getUiSettings().setRotateGesturesEnabled(false);
+                        if(mMap.getCameraPosition().zoom<=6.5f){
 
+                            cameraPosition = new CameraPosition.Builder()
+                                    .target(latLng)
+                                    .bearing(location.getBearing())
+                                    .zoom(18.0f)
+                                    .build();
+                            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), null);
+                        }
+                        else if(mMap.getCameraPosition().zoom>6.5f){
+                            cameraPosition = new CameraPosition.Builder()
+                                    .target(latLng)
+                                    .bearing(location.getBearing())
+                                    .zoom(18.0f)
+                                    .build();
+                            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), null);
+                        }
+                         break;
+                    case "Nenhuma":
+                        mMap.getUiSettings().setRotateGesturesEnabled(true);
+                        mMap.getUiSettings().setScrollGesturesEnabled(false);
+                        if(mMap.getCameraPosition().zoom<=6.5f){
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18.0f));
+                        }
+                        else if(mMap.getCameraPosition().zoom>6.5f){
+                            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                        }
+                        break;
+                    default:
+                        Toast.makeText(this,"Orientacao Falhou", Toast.LENGTH_LONG).show();
+                }
             }
             else {
                 Toast.makeText(this, "Incapaz de buscar a localização atual", Toast.LENGTH_SHORT).show();
@@ -232,6 +280,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         setUpMap();
+
+//        mMap.addMarker(new MarkerOptions().position(new LatLng(-12.62987332, -38.67299200)));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom( new LatLng(-12.62987332, -38.67299200),18));
     }
 
     public void setUpMap(){
@@ -250,10 +301,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.setTrafficEnabled(false);
             }
 
-            if(orientacao.equals("North Up (Norte do Mapa)")){mMap.getUiSettings().setRotateGesturesEnabled(false);}
-            if(orientacao.equals("Course Up (Topo do Mapa)")){mMap.getUiSettings().setRotateGesturesEnabled(false);}
-            if(orientacao.equals("Nenhuma")){}
-
             mMap.setMyLocationEnabled(true);
 
         }catch (SecurityException e){
@@ -265,18 +312,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onLocationChanged(@NonNull Location location) {
     }
 
-
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
     public void getShared(){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFES, MODE_PRIVATE);
 
@@ -286,33 +321,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         trafego = sharedPreferences.getString("trafegon", "unknown");
         tipo = sharedPreferences.getString("tipo", "unknown");
     }
-
-
-    public static String getLatitudeAsDMS(Location location, int decimalPlace){
-        String strLatitude = Location.convert(location.getLatitude(), Location.FORMAT_SECONDS);
-        strLatitude = replaceDelimiters(strLatitude, decimalPlace);
-        strLatitude = strLatitude + " N";
-        return strLatitude;
-    }
-
-    public static String getLongitudeAsDMS(Location location, int decimalPlace){
-        String strLongitude = Location.convert(location.getLongitude(), Location.FORMAT_SECONDS);
-        strLongitude = replaceDelimiters(strLongitude, decimalPlace);
-        strLongitude = strLongitude + " W";
-        return strLongitude;
-    }
-
-    @NonNull
-    private static String replaceDelimiters(String str, int decimalPlace) {
-        str = str.replaceFirst(":", "°");
-        str = str.replaceFirst(":", "'");
-        int pointIndex = str.indexOf(".");
-        int endIndex = pointIndex + 1 + decimalPlace;
-        if(endIndex < str.length()) {
-            str = str.substring(0, endIndex);
-        }
-        str = str + "\"";
-        return str;
-    }
-
 }
