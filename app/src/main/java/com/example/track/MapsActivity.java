@@ -12,7 +12,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -50,6 +49,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -62,11 +62,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor sharedPrefsEditor;
     private SupportMapFragment mapFragment;
-    List<Location> local = new ArrayList<Location>();
+//    List<Location> local = new ArrayList<Location>();
 
     private ActivityMapsBinding binding;
     public static final String SHARED_PREFES = "sharedPrefes";
     private String cordenada, velocidade, orientacao, trafego, tipo;
+    private Date data;
+    private String stringDate;
 
     /* Request code for location permission request.*/
     private static final int REQUEST_LOCATION = 1;
@@ -96,6 +98,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
+        //excluir
+        excluirDadosDB();
+
         // atualiza informações na tela
         atualizar(null);
 
@@ -104,6 +110,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void IniciaComponent(){
         longLat = (TextView) findViewById(R.id.longLat);
         campVelocidade = (TextView) findViewById(R.id.velocidade);
+        data = new Date();
+        stringDate = DateFormat.getDateInstance().format(data);
     }
 
     @Override
@@ -138,8 +146,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 finish();
             }
         }
-
-
     }
 
 
@@ -167,7 +173,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             // Configura solicitações de localização
             mLocationRequest = LocationRequest.create();
             mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-            mLocationRequest.setInterval(5*500);
+            mLocationRequest.setInterval(2*500);
             mLocationRequest.setFastestInterval(1*500);
 
             mLocationCallback = new LocationCallback() {
@@ -176,11 +182,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     super.onLocationResult(locationResult);
                     Location location=locationResult.getLastLocation();
 
-
                     atualizar(location);
 
                     // usar na tela de historico
-                    local.add(location);
+//                    local.add(location);
+                    DBinsert(location);
                 }
             };
             //
@@ -234,23 +240,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onPause(){
         super.onPause();
         mMap.clear();
-
-        //usar na tela de historico
-        sharedPrefsEditor = sharedPreferences.edit();
-        if (sharedPrefsEditor != null) {
-            int i = 1;
-
-            for (Location l : local) {
-                float longitude = (float) l.getLongitude();
-                float latitude = (float) l.getLatitude();
-                sharedPrefsEditor.putFloat("Latitude" + i, latitude);
-                sharedPrefsEditor.putFloat("Longitude" + i, longitude);
-                i++;
-                sharedPrefsEditor.putInt("Contador", i);
-                sharedPrefsEditor.commit();
-
-            }
-        }
+        stopLocationUpdates();
     }
 
     private void habilitaMyLocation() {
@@ -305,9 +295,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void atualizar(Location location) {
-//                    Toast.makeText(this, ""+location, Toast.LENGTH_LONG).show();
         if(location != null){
-            float rotacao = location.getBearing();
+            float rotacao = location.getBearing() + 60.0f;
             float acuracia = location.getAccuracy();
             LatLng origem = new LatLng(location.getLatitude(), location.getLongitude());
             float aprox = mMap.getCameraPosition().zoom;
@@ -316,7 +305,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mCircle.setRadius(acuracia);
 
             maker.setPosition(origem);
-            maker.setRotation(rotacao);
 
             mudaOrientacao(rotacao, origem, aprox);
             mudaCordenada(location.getLatitude(), location.getLongitude());
@@ -383,7 +371,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void mudaOrientacao(float rotacao, LatLng origem, float aprox){
         switch (orientacao) {
             case "North Up (Norte do Mapa)":
+                maker.setRotation(rotacao);
                 mMap.getUiSettings().setAllGesturesEnabled(false);;
+                mMap.getUiSettings().setRotateGesturesEnabled(true);
                 if (mMap.getCameraPosition().zoom <= 6.5f) {
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origem, 18.5f));
                 } else if (mMap.getCameraPosition().zoom > 6.5f) {
@@ -391,7 +381,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
                 break;
             case "Course Up (Topo do Mapa)":
+                maker.setRotation(rotacao);
                 mMap.getUiSettings().setAllGesturesEnabled(false);
+                mMap.getUiSettings().setRotateGesturesEnabled(true);
                 if(mMap.getCameraPosition().zoom<=6.5f){
                     cameraPosition = new CameraPosition.Builder()
                             .target(origem)
@@ -455,4 +447,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     //----------------------------------------------------------------------------------------------
 
+
+    public void DBinsert(Location location){
+        try {
+            Cordenadas_ll cordenadas_ll = new Cordenadas_ll(location.getLatitude(), stringDate, location.getLongitude());
+            CordenadaDao cordenadaDao = new CordenadaDao(this);
+
+            long id = cordenadaDao.insert(cordenadas_ll);
+
+            Log.i("Quantidade salva-> ", " " + id);
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void excluirDadosDB(){
+        CordenadaDao cordenadaDao = new CordenadaDao(this);
+        cordenadaDao.deleteAll();
+    }
 }
