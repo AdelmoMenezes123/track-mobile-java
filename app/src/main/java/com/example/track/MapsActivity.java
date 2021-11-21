@@ -60,9 +60,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Marker maker = null;
     private CameraPosition cameraPosition  = null;
     private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor sharedPrefsEditor;
+//    private SharedPreferences.Editor sharedPrefsEditor;
     private SupportMapFragment mapFragment;
-//    List<Location> local = new ArrayList<Location>();
 
     private ActivityMapsBinding binding;
     public static final String SHARED_PREFES = "sharedPrefes";
@@ -110,8 +109,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void IniciaComponent(){
         longLat = (TextView) findViewById(R.id.longLat);
         campVelocidade = (TextView) findViewById(R.id.velocidade);
-        data = new Date();
-        stringDate = DateFormat.getDateInstance().format(data);
     }
 
     @Override
@@ -189,7 +186,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     DBinsert(location);
                 }
             };
-            //
             mFusedLocationProviderClient.requestLocationUpdates(mLocationRequest,mLocationCallback,null);
         } else {
             // Solicite a permissão
@@ -309,8 +305,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mudaOrientacao(rotacao, origem, aprox);
             mudaCordenada(location.getLatitude(), location.getLongitude());
             mudaVelocidade(location);
-
-//            Toast.makeText(this, " "+ location.getBearing(), Toast.LENGTH_LONG).show();
 
         }
 
@@ -450,6 +444,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void DBinsert(Location location){
         try {
+            data = new Date();
+            stringDate = DateFormat.getDateTimeInstance().format(data);
             Cordenadas_ll cordenadas_ll = new Cordenadas_ll(location.getLatitude(), stringDate, location.getLongitude());
             CordenadaDao cordenadaDao = new CordenadaDao(this);
 
@@ -463,7 +459,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void excluirDadosDB(){
-        CordenadaDao cordenadaDao = new CordenadaDao(this);
-        cordenadaDao.deleteAll();
+        try {
+            CordenadaDao cordenadaDao = new CordenadaDao(this);
+            cordenadaDao.deleteAll();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

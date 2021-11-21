@@ -9,20 +9,6 @@
     android:orientation="vertical"
     tools:context=".Log">
 
-    <Button
-        android:id="@+id/logBtn"
-        android:layout_width="354dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
-        android:layout_centerInParent="true"
-        android:background="@drawable/radius"
-        android:text="Voltar para tela de historico"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:translationY="10dp"
-        android:layout_marginBottom="50dp"/>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

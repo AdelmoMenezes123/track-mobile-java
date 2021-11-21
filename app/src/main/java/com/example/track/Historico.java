@@ -63,7 +63,11 @@ public class Historico extends FragmentActivity implements OnMapReadyCallback{
             }
         });
 
-        query();
+       try {
+           query();
+       }catch (Exception e){
+           e.printStackTrace();
+       }
     }
 
     public void iniciaComponent(){
@@ -133,20 +137,24 @@ public class Historico extends FragmentActivity implements OnMapReadyCallback{
 
     public void query(){
 
-        CordenadaDao cordenadaDao = new CordenadaDao(this);
-        Cursor dados = cordenadaDao.find();
+        try {
+            CordenadaDao cordenadaDao = new CordenadaDao(this);
+            Cursor dados = cordenadaDao.find();
 
-        int indiceLatitude = dados.getColumnIndex("latitude");
-        int indiceLongitude = dados.getColumnIndex("longitude");
-        int indiceData = dados.getColumnIndex("data");
-        while (dados.moveToNext()) {
-            Cordenadas_ll cordenadas_ll = new Cordenadas_ll(
-                    dados.getDouble(indiceLatitude),
-                    dados.getString(indiceData),
-                    dados.getDouble(indiceLongitude)
-            );
-            latitudeLatitude.add(cordenadas_ll);
+            int indiceLatitude = dados.getColumnIndex("latitude");
+            int indiceLongitude = dados.getColumnIndex("longitude");
+            int indiceData = dados.getColumnIndex("data");
+            while (dados.moveToNext()) {
+                Cordenadas_ll cordenadas_ll = new Cordenadas_ll(
+                        dados.getDouble(indiceLatitude),
+                        dados.getString(indiceData),
+                        dados.getDouble(indiceLongitude)
+                );
+                latitudeLatitude.add(cordenadas_ll);
 
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
     }
