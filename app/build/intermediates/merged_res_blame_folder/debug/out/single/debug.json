@@ -1,0 +1,206 @@
+[
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/layout_activity_gnss.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_gnss.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_credito.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/credito.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_gnss.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/gnss.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_ic_tipo_mapa.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/ic_tipo_mapa.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_logo_topo_black.jpeg.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/logo_topo_black.jpeg"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/layout_activity_creditos.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_creditos.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_ic_velocidade.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/ic_velocidade.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_junior.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/junior.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_radius_config.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/radius_config.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_logo_topo_white.jpeg.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/logo_topo_white.jpeg"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_ic_icon_location.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/ic_icon_location.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/layout_activity_main.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_radius.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/radius.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_cima.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/cima.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_icon_sino.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/icon_sino.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_config.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/config.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_ic_trafego.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/ic_trafego.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/layout_activity_maps.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_maps.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_ic_check.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/ic_check.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_historico.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/historico.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/layout_activity_log.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_log.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/layout_activity_configuracoes.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_configuracoes.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_mauricio.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/mauricio.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_nav.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/nav.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_helena.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/helena.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_ic_gnss.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/ic_gnss.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_voltar.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/voltar.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_adelmo.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/adelmo.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/layout_activity_home.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_home.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_buri.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/buri.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_logo_meio.png.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/logo_meio.png"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/layout_activity_apresentacao.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_apresentacao.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/layout_activity_historico.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_historico.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_container_components.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/container_components.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_creddito.jpeg.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/creddito.jpeg"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_fundo.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/fundo.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/merged_res/debug/drawable_ic_map.xml.flat",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/drawable/ic_map.xml"
+    }
+]

@@ -1,0 +1,57 @@
+com/example/track/databinding/ActivityConfiguracoesBinding.java
+ com.example.track.databinding.ActivityConfiguracoesBinding
+com/example/track/databinding/ActivityHomeBinding.java
+ com.example.track.databinding.ActivityHomeBinding
+com/example/track/Creditos.java
+ com.example.track.Creditos
+com/example/track/MainActivity.java
+ com.example.track.MainActivity
+com/example/track/CordenadaDao.java
+ com.example.track.CordenadaDao
+com/example/track/Cordenadas_ll.java
+ com.example.track.Cordenadas_ll
+com/example/track/databinding/ActivityLogBinding.java
+ com.example.track.databinding.ActivityLogBinding
+com/example/track/databinding/ActivityHistoricoBinding.java
+ com.example.track.databinding.ActivityHistoricoBinding
+com/example/track/Log.java
+ com.example.track.Log
+com/example/track/databinding/ActivityCreditosBinding.java
+ com.example.track.databinding.ActivityCreditosBinding
+com/example/track/cGnssView.java
+ com.example.track.cGnssView
+com/example/track/Conexao.java
+ com.example.track.Conexao
+com/example/track/Historico.java
+ com.example.track.Historico
+ com.example.track.Historico$1
+com/example/track/BuildConfig.java
+ com.example.track.BuildConfig
+com/example/track/Gnss.java
+ com.example.track.Gnss
+ com.example.track.Gnss$GnssStatusCallback
+com/example/track/Apresentacao.java
+ com.example.track.Apresentacao
+ com.example.track.Apresentacao$1
+com/example/track/Home.java
+ com.example.track.Home
+ com.example.track.Home$1
+ com.example.track.Home$2
+ com.example.track.Home$3
+ com.example.track.Home$4
+ com.example.track.Home$5
+com/example/track/databinding/ActivityMapsBinding.java
+ com.example.track.databinding.ActivityMapsBinding
+com/example/track/databinding/ActivityApresentacaoBinding.java
+ com.example.track.databinding.ActivityApresentacaoBinding
+com/example/track/MapsActivity.java
+ com.example.track.MapsActivity
+ com.example.track.MapsActivity$1
+ com.example.track.MapsActivity$2
+com/example/track/Configuracoes.java
+ com.example.track.Configuracoes
+ com.example.track.Configuracoes$1
+com/example/track/databinding/ActivityGnssBinding.java
+ com.example.track.databinding.ActivityGnssBinding
+com/example/track/databinding/ActivityMainBinding.java
+ com.example.track.databinding.ActivityMainBinding

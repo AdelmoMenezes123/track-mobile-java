@@ -1,0 +1,163 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.track"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml
+10    <!--
+11         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+12         Google Maps Android API v2, but you must specify either coarse or fine
+13         location permissions for the "MyLocation" functionality.
+14    -->
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:9:5-79
+15-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:9:22-76
+16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+16-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:10:5-81
+16-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:10:22-78
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+17-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:11:5-79
+17-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:11:22-76
+18    <uses-permission android:name="android.permission.INTERNET" />
+18-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:12:5-67
+18-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:12:22-64
+19
+20    <uses-feature
+20-->[com.google.android.gms:play-services-maps:17.0.0] /home/adelmomenezes/.gradle/caches/transforms-3/075522a55ae82583a7d3b553bb99993c/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
+21        android:glEsVersion="0x00020000"
+21-->[com.google.android.gms:play-services-maps:17.0.0] /home/adelmomenezes/.gradle/caches/transforms-3/075522a55ae82583a7d3b553bb99993c/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+22        android:required="true" />
+22-->[com.google.android.gms:play-services-maps:17.0.0] /home/adelmomenezes/.gradle/caches/transforms-3/075522a55ae82583a7d3b553bb99993c/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
+23
+24    <application
+24-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:14:5-64:19
+25        android:allowBackup="true"
+25-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:15:9-35
+26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+26-->[androidx.core:core:1.5.0] /home/adelmomenezes/.gradle/caches/transforms-3/97e7ec19bd11dff7ae3d399ac9d0fa5b/transformed/core-1.5.0/AndroidManifest.xml:24:18-86
+27        android:debuggable="true"
+28        android:icon="@mipmap/ic_launcher"
+28-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:16:9-43
+29        android:label="@string/app_name"
+29-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:17:9-41
+30        android:roundIcon="@mipmap/ic_launcher_round"
+30-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:18:9-54
+31        android:supportsRtl="true"
+31-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:19:9-35
+32        android:testOnly="true"
+33        android:theme="@style/Theme.Design.NoActionBar" >
+33-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:20:9-56
+34        <activity
+34-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:21:9-23:40
+35            android:name="com.example.track.Gnss"
+35-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:22:13-33
+36            android:exported="false" />
+36-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:23:13-37
+37        <activity
+37-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:24:9-26:40
+38            android:name="com.example.track.GnssActivity"
+38-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:25:13-41
+39            android:exported="false" />
+39-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:26:13-37
+40
+41        <meta-data
+41-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:28:9-30:55
+42            android:name="com.google.android.geo.API_KEY"
+42-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:29:13-58
+43            android:value="@string/google_maps_key" />
+43-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:30:13-52
+44
+45        <activity
+45-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:32:9-34:39
+46            android:name="com.example.track.Log"
+46-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:33:13-32
+47            android:exported="true" />
+47-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:34:13-36
+48        <activity
+48-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:35:9-38:59
+49            android:name="com.example.track.MapsActivity"
+49-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:36:13-41
+50            android:exported="true"
+50-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:37:13-36
+51            android:label="@string/title_activity_maps" />
+51-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:38:13-56
+52        <activity
+52-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:39:9-41:39
+53            android:name="com.example.track.Historico"
+53-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:40:13-38
+54            android:exported="true" />
+54-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:41:13-36
+55        <activity
+55-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:42:9-44:39
+56            android:name="com.example.track.Creditos"
+56-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:43:13-37
+57            android:exported="true" />
+57-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:44:13-36
+58        <activity
+58-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:45:9-47:39
+59            android:name="com.example.track.Configuracoes"
+59-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:46:13-42
+60            android:exported="true" />
+60-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:47:13-36
+61        <activity
+61-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:48:9-50:39
+62            android:name="com.example.track.Home"
+62-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:49:13-33
+63            android:exported="true" />
+63-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:50:13-36
+64        <activity
+64-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:51:9-54:63
+65            android:name="com.example.track.MainActivity"
+65-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:52:13-41
+66            android:exported="true"
+66-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:53:13-36
+67            android:theme="@style/Theme.Design.NoActionBar" />
+67-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:54:13-60
+68        <activity
+68-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:55:9-63:20
+69            android:name="com.example.track.Apresentacao"
+69-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:56:13-41
+70            android:exported="true" >
+70-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:57:13-36
+71            <intent-filter>
+71-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:58:13-62:29
+72                <action android:name="android.intent.action.MAIN" />
+72-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:59:17-69
+72-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:59:25-66
+73
+74                <category android:name="android.intent.category.LAUNCHER" />
+74-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:61:17-77
+74-->/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/AndroidManifest.xml:61:27-74
+75            </intent-filter>
+76        </activity>
+77        <!-- Needs to be explicitly declared on P+ -->
+78        <uses-library
+78-->[com.google.android.gms:play-services-maps:17.0.0] /home/adelmomenezes/.gradle/caches/transforms-3/075522a55ae82583a7d3b553bb99993c/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+79            android:name="org.apache.http.legacy"
+79-->[com.google.android.gms:play-services-maps:17.0.0] /home/adelmomenezes/.gradle/caches/transforms-3/075522a55ae82583a7d3b553bb99993c/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+80            android:required="false" />
+80-->[com.google.android.gms:play-services-maps:17.0.0] /home/adelmomenezes/.gradle/caches/transforms-3/075522a55ae82583a7d3b553bb99993c/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+81
+82        <activity
+82-->[com.google.android.gms:play-services-base:17.5.0] /home/adelmomenezes/.gradle/caches/transforms-3/c7568e8705f251fef106b4b50c29e8e2/transformed/jetified-play-services-base-17.5.0/AndroidManifest.xml:23:9-26:75
+83            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+83-->[com.google.android.gms:play-services-base:17.5.0] /home/adelmomenezes/.gradle/caches/transforms-3/c7568e8705f251fef106b4b50c29e8e2/transformed/jetified-play-services-base-17.5.0/AndroidManifest.xml:24:13-79
+84            android:exported="false"
+84-->[com.google.android.gms:play-services-base:17.5.0] /home/adelmomenezes/.gradle/caches/transforms-3/c7568e8705f251fef106b4b50c29e8e2/transformed/jetified-play-services-base-17.5.0/AndroidManifest.xml:25:13-37
+85            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+85-->[com.google.android.gms:play-services-base:17.5.0] /home/adelmomenezes/.gradle/caches/transforms-3/c7568e8705f251fef106b4b50c29e8e2/transformed/jetified-play-services-base-17.5.0/AndroidManifest.xml:26:13-72
+86
+87        <meta-data
+87-->[com.google.android.gms:play-services-basement:17.5.0] /home/adelmomenezes/.gradle/caches/transforms-3/7bfe9124a72ed5828bff4f6fb297c9a3/transformed/jetified-play-services-basement-17.5.0/AndroidManifest.xml:23:9-25:69
+88            android:name="com.google.android.gms.version"
+88-->[com.google.android.gms:play-services-basement:17.5.0] /home/adelmomenezes/.gradle/caches/transforms-3/7bfe9124a72ed5828bff4f6fb297c9a3/transformed/jetified-play-services-basement-17.5.0/AndroidManifest.xml:24:13-58
+89            android:value="@integer/google_play_services_version" />
+89-->[com.google.android.gms:play-services-basement:17.5.0] /home/adelmomenezes/.gradle/caches/transforms-3/7bfe9124a72ed5828bff4f6fb297c9a3/transformed/jetified-play-services-basement-17.5.0/AndroidManifest.xml:25:13-66
+90    </application>
+91
+92</manifest>

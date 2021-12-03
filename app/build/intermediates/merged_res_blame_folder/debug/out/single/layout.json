@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_log.xml",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_log.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_gnss.xml",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_gnss.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_historico.xml",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_historico.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_home.xml",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_home.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_maps.xml",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_maps.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_configuracoes.xml",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_configuracoes.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_creditos.xml",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_creditos.xml"
+    },
+    {
+        "merged": "/home/adelmomenezes/AndroidStudioProjects/Track/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_apresentacao.xml",
+        "source": "/home/adelmomenezes/AndroidStudioProjects/Track/app/src/main/res/layout/activity_apresentacao.xml"
+    }
+]
